@@ -1,0 +1,113 @@
+@font-face {
+    font-family: "heal the web";
+    src: url(fonts/HealTheWebA-Regular.otf);
+}
+
+* {
+    text-decoration: none;
+    list-style: none;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    background-color: #252321;
+}
+
+body {
+    color: #F4F1EB;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    /* flex-direction: row; */
+    grid-template-areas: 
+        "sidebar main";
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 1fr;
+    font-size: 25px;
+    font-family: 'Satoshi', sans-serif;
+    font-size: xx-large;
+}
+
+.sidebar {
+    position: fixed;
+    height: 100vh;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    grid-area: sidebar;
+    border-right: #F4F1EB solid;
+    font-family: "heal the web", sans-serif;
+    /* grid-column-start: ; */
+}
+
+
+.navbar-item {
+    margin: 20px 0;
+    padding: 0;
+}
+
+.main {
+    grid-area: main;
+    /* display: flex;
+    flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+}
+
+.sec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto; /* future note: somehow margin auto fixes centers the child elment*/
+    height: 100vh;
+    /* width: calc(100vw - 2835px); */
+}
+
+.about-text-container {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.about-text {
+    margin: 10px 0;
+}
+
+.ti-cursor {
+    transform: translateX(-.01em) !important;
+}
+
+.it {
+    /* border-bottom: #F4F1EB solid; */
+    display: inline-block;
+    position: relative;
+    padding: 1px;
+}
+
+.it::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    display: block;
+    background: none repeat scroll 0 0 transparent;
+    height: 3px;
+    width: 100%;
+    background: #F4F1EB;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+}
+
+[class='it hovered']::after {
+    width: 100%;
+    left: 0;
+}
+
+[class="it-container 0"] {
+    margin-right: 10px;
+}
