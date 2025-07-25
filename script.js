@@ -1,74 +1,57 @@
-const { animate, stagger, eases, createTimeline, } = anime;
-
 new TypeIt("#typing", {
-  strings: "Hey👋🏻 I'm Ghali!",
+  strings: `Hey👋🏻 I'm <span class="name"> Ghali!</span>`,
 }).go();
 
+gsap.registerPlugin(SplitText, DrawSVGPlugin)
 
-const splitTarget = 'Information Technology'
 
-const wordContainer = (text, index) => {
-        const container = document.createElement('span')
+const it = 'Information Technology'
+  
+const wordContainer = (text) => {
+    const container = document.createElement('span')
 
-        container.textContent = text
-        container.classList.add(`it-container`)
-        container.classList.add(index)
-        return container
+    container.textContent = text
+    container.classList.add('it-container')
+    return container
 }
 
-const span = (text) => {
-    const node = document.createElement('span')
+const replaceElement = (targetText, node) => {
+    let container = null
 
-    node.textContent = text
-    node.classList.add('pop')
-    node.style.display = 'inline-block'
-    node.style.whiteSpace = 'break-spaces'
-    return node
-}
+    container = wordContainer(targetText)
 
-const splitWord = text => text.split(' ').map(wordContainer)
-
-const splitLetter = text => text.split('').map(span)
-
-const splitFunction = (targetText, node) => {
-    let containers = null
-
-    containers = splitWord(targetText)
-
-    if (containers) {
-        node.firstChild.replaceWith(...containers)
-        
-        const container = document.querySelectorAll('.it-container')
-
-        container.forEach((el) => {
-            const results = splitLetter(el.innerText)
-            
-            if (results) {
-                el.firstChild.replaceWith(...results)
-            }
-        })
+    if (container) {
+      node.firstChild.replaceWith(container)
     }
 }
 
 const node = document.getElementById('it')
 
 node.addEventListener('mouseover', () => {
-    splitFunction(splitTarget, node)
-    const popLettersContainer = node.querySelectorAll('.it-container')
+  replaceElement(it, node)
+  let split = SplitText.create('.it-container', {
+        type: "chars, words",
+        wordsClass: "it-word-container",
+        charsClass: 'pop'
+  })
 
-    popLettersContainer.forEach((n) => {
-        const popLetters = n.querySelectorAll('.pop')
-        animate(popLetters, {
-            scale: { from: .1},
-            y: [0,-20, 0],
-            opacity: { from: 0, delay: 100},
-            delay: stagger(25),
-            ease: eases.linear(),
-            duration: 250,
-            loop: false,
-        })    
+  const wordContainer = node.querySelectorAll('.it-word-container')
+  wordContainer.forEach((el) => {
+    const popLetters = el.querySelectorAll('.pop')
+    gsap.from(popLetters, {
+      y: -50,
+      autoAlpha: 0,
+      stagger: 0.05
     })
+  })
 
-    node.classList.add('hovered')
+  const underline = node.querySelector('svg')
+  node.classList.remove('dashed-line')
+  underline.classList.remove("none")
+  const path = underline.querySelector('path')
+  gsap.from(path, {duration:1.5, drawSVG: 0 });
 }, {once: true})
 
+const svg = document.querySelectorAll('.particule-svg path')
+
+gsap.to(svg, {duration: 1, y: -100, transformOrigin:"50% 50%"});
