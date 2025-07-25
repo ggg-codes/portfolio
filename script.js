@@ -2,7 +2,7 @@ new TypeIt("#typing", {
   strings: `Hey👋🏻 I'm <span class="name"> Ghali!</span>`,
 }).go();
 
-gsap.registerPlugin(SplitText, DrawSVGPlugin)
+gsap.registerPlugin(SplitText, DrawSVGPlugin, CustomEase,CustomWiggle)
 
 
 const it = 'Information Technology'
@@ -52,6 +52,22 @@ node.addEventListener('mouseover', () => {
   gsap.from(path, {duration:1.5, drawSVG: 0 });
 }, {once: true})
 
-const svg = document.querySelectorAll('.particule-svg path')
+const svg = document.querySelector('.particule-svg')
+const paths = svg.querySelectorAll('path')
 
-gsap.to(svg, {duration: 1, y: -100, transformOrigin:"50% 50%"});
+// gsap.to(svg, {duration: 3.5, y: -500, x: -500, transformOrigin:"50% 50%", ease: "bounce.out",});
+
+paths.forEach((el) => {
+  gsap.to(el, {
+    duration: 3,
+    y: -10,
+    x: -5,
+    transformOrigin:"50% 50%",
+    repeat: -1,
+    yoyo: true,
+    ease:  CustomWiggle.create("myWiggle", {
+      wiggles:5,
+      type:"random"
+    }),
+  })
+})
