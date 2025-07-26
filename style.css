@@ -75,6 +75,17 @@ h1, h2, p {
     position: absolute;
     right: 5em;
     top: 20em;
+    width: 200px;
+    height: 200px;
+}
+
+.particule {
+    position: absolute;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-color);
+    display: inline-block;
 }
 
 .sec {

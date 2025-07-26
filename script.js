@@ -52,27 +52,29 @@ node.addEventListener('mouseover', () => {
   gsap.from(path, {duration:1.5, drawSVG: 0 });
 }, {once: true})
 
-function copy(element, quantity) {
-		if (typeof(element) === "string") {
-			element = document.querySelector(element);
-		}
-		var parent = element.parentNode,
-				type = element.nodeName,
-				a = [],
-				child;
-		while (--quantity > -1) {
-			child = document.createElement(type);
-			parent.insertBefore(child, element);
-			a.push(child);
-			child.outerHTML = element.outerHTML;
-      const x = Math.random() * window.innerWidth;
-      const y = Math.random() * (window.innerHeight / 2);
+const dotContainer = document.querySelector('.particules-container');
 
-		}
-		return a;
+const createDot = (amount) => {
+  const dot = document.createElement('div');
+  dot.classList.add('particule');
+
+  const containerRect = dotContainer.getBoundingClientRect();
+
+  const x = Math.random() * containerRect.width;
+  const y = Math.random() * containerRect.height;
+  console.log(x, y)
+
+  dot.style.left = `${x}px`;
+  dot.style.top = `${y}px`;
+
+  dotContainer.appendChild(dot);
 }
 
-copy('.particule', 10)
+for (let i = 0; i < 20; i++) {
+    createDot();
+};
+
+// copy('.particule', 10)
 
 
 // const svg = document.querySelector('.particule-svg')
@@ -95,31 +97,31 @@ copy('.particule', 10)
 //   })
 // })
 
-// const wiggle = CustomWiggle.create("wiggle", {
-//     wiggles:2,
-//     type:"uniform"
-// })
+const wiggle = CustomWiggle.create("wiggle", {
+    wiggles:2,
+    type:"uniform"
+})
 
 // const svgdata = CustomEase.getSVGData("wiggle", {width: 1000, height: 200, path: "#ease"})
 
 // console.log(CustomEase.getSVGData("wiggle"))
 
-// gsap.to(paths, {
-//     duration: 3,
-//     keyframes: {
-//       "25%": { y: -10,},
-//       "50%": { x: -10},
-//       "75%": { y: 10},
-//       "100%": {x: 10}
-//     },
-//     // y: -10,
-//     // x: -5,
-//     repeat: -1,
-//     yoyo: true,
-//     // ease: "none",
-//     ease: "wiggle",
-//     stagger: {
-//       each: 0.1,
-//       from: "center"
-//     }
-//   })
+gsap.to('.particule', {
+    duration: 5,
+    keyframes: {
+      "25%": { y: -20,},
+      "50%": { x: -20},
+      "75%": { y: 20},
+      "100%": {x: 20}
+    },
+    // y: -10,
+    // x: -5,
+    repeat: -1,
+    yoyo: true,
+    // ease: "none",
+    ease: "wiggle",
+    stagger: {
+      each: 0.1,
+      // from: "center"
+    }
+  })
