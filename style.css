@@ -71,7 +71,7 @@ h1, h2, p {
     justify-content: center;
 }
 
-.particules {
+.particules-container {
     position: absolute;
     right: 5em;
     top: 20em;
@@ -131,4 +131,14 @@ h1, h2, p {
 
 .none {
     display: none;
+}
+
+.wigglecurve {
+    position: absolute;
+    background-color: #272727;
+}
+
+#ease {
+    stroke: #D4AA7D;
+    fill: none;
 }
