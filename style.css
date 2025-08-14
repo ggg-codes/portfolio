@@ -3,15 +3,20 @@
     src: url(fonts/HealTheWebA-Regular.otf);
 }
 
+@font-face {
+    font-family: 'JetBrainMono';
+    src: url(fonts/JetBrainsMono-Regular.woff2);
+}
+
 
 :root {
     --dominant-color: #272727;
     --secondary-color: #D4AA7D;
     --accent-color: #F0D19F;
-
+    --text-color: #F4F1EB;
 }
 
-* {
+a, ul, li {
     text-decoration: none;
     list-style: none;
     color: inherit;
@@ -24,6 +29,7 @@ html {
 }
 
 body {
+    background-image: url(assets/topography.svg);
     color: #F4F1EB;
     min-height: 100vh;
     padding: 0;
@@ -34,16 +40,21 @@ body {
         "sidebar main";
     grid-template-columns: 300px 1fr;
     grid-template-rows: 1fr;
-    font-size: 25px;
+    /* font-size: 25px; */
     font-family: 'Satoshi', sans-serif;
+    /* font-family: "Roboto Mono", monospace; */
     font-size: xx-large;
 }
 
-h1, h2, p {
+h1, h2, h3, h4, p {
     text-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    padding: 0;
+    margin: 0;
 }
 
 .sidebar {
+    background-color: var(--dominant-color);
     position: fixed;
     height: 100vh;
     width: 300px;
@@ -52,7 +63,8 @@ h1, h2, p {
     align-items: center;
     justify-content: center;
     grid-area: sidebar;
-    border-right: #F4F1EB solid;
+    border-right: var(--secondary-color) solid;
+    box-shadow: 20px 0px 10px -10px rgba(0,0,0,0.1);
     font-family: "heal the web", sans-serif;
     /* grid-column-start: ; */
 }
@@ -61,10 +73,39 @@ h1, h2, p {
 .navbar-item {
     margin: 20px 0;
     padding: 0;
+    transition: all 0.3s ease;
+    a {
+        display: flex;
+        svg {
+            margin-right: 0.5em;
+            stroke: var(--accent-color);
+            path:nth-child(1) {
+                animation: blink 1s infinite step-end;
+                /* stroke: var(--secondary-color); */
+            }
+        }
+    }
+}
+
+@keyframes blink {
+  from, to {
+    stroke: transparent;
+  }
+  50% {
+    stroke: var(--secondary-color);
+  }
+}
+
+.navbar-item:hover, .active {
+    color: var(--secondary-color);
+    transform: translateX(10px);
+}
+
+.active {
+    color: var(--accent-color)
 }
 
 .main {
-    background-image: url(assets/topography.svg);
     position: relative;
     grid-area: main;
     align-items: center;
@@ -73,36 +114,66 @@ h1, h2, p {
 
 .particules-container {
     position: absolute;
+    /* opacity: 0.9; */
+    pointer-events: auto;
+    /* transform: scale(3px); */
+}
+
+.down {
     right: 5em;
     top: 20em;
-    width: 200px;
-    height: 200px;
 }
 
-.particule {
+.up {
+    /* right: 37em;
+    top: 3em; */
+    right: 33em;
+    top: 10em;
+    opacity: 0.75;
+    z-index: 2;
+    /* .p {
     position: absolute;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    background-color: var(--accent-color);
-    display: inline-block;
+    }
+    .p.over {
+        transform: translate(15px, -10px);
+    }
+    .p.under {
+        transform: translate(5px, 15px);
+        opacity: .5;
+        /* transform: translate(50px, 150px) scale(1.1);
+        opacity: .5; 
+    } */
 }
 
-.sec {
+.particule-svg {
+    /* mask-image: radial-gradient(circle at center, black 20%, transparent); */
+    /* background: radial-gradient(circle at center,blue, red); */
+    z-index: 1000;
+}
+
+.sec.about {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin: auto; /* future note: somehow margin auto fixes centers the child elment*/
     height: 100vh;
+    z-index: 1;
     /* width: calc(100vw - 2835px); */
 }
+
+
 
 .about-text-container {
     display: flex;
     justify-content: start;
     flex-direction: column;
 }
+
+.welcome {
+    z-index: 1000;
+}
+
 
 .name {
     color: var(--accent-color);
@@ -112,6 +183,7 @@ h1, h2, p {
 
 .about-text {
     margin: 10px 0;
+    z-index: 1000;
 }
 
 .ti-cursor {
@@ -140,16 +212,367 @@ h1, h2, p {
     filter: drop-shadow(0 0 0.25rem rgba(0, 0, 0, 0.25));
 }
 
+.contact-list {
+    display: flex;
+    margin-top: 25px;
+    justify-content: flex-end;
+    font-size: 1.25em;
+}
+
+.contact {
+    margin-left: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    a {
+        display: flex;
+        align-items: center
+    }
+}
+
+.contact-icon {
+    margin-right: 5px;
+    fill: var(--text-color);
+    transition: fill 0.3s ease;
+}
+
+.external-link {
+    transform: translateY(120%);
+    transition: transform .5s ease;  
+}
+
+.logo {
+    transition: transform .5s ease;
+}
+
+.contact::after {
+    content: "";
+    position: absolute;
+    display: block;
+    background: none repeat scroll 0 0 transparent;
+    height: 5px;
+    width: 0;
+    left: 0;
+    background: var(--secondary-color);
+    /* background: var(--accent-color); */
+    transition: width 0.3s ease 0s;
+}
+
+.contact:hover {
+    color: var(--secondary-color);
+    svg {
+        fill: var(--secondary-color);
+        .logo {
+            transform: translateY(-120%);
+        }
+        .external-link {
+            transform: translateY(0);
+        }
+    }
+}
+
+.contact:hover::after {
+    width: 100%;
+    /* left: 0; */
+}
+
+.about-me {
+    min-height: 100vh;
+    /* margin: 3em; */
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 10em 30em;
+    grid-template-rows: 225px 1fr 1fr;
+    gap: 15px 10px;
+}
+
+.about-me-title {
+    font-family: 'heal the web', 'Satoshi', sans-serif;
+    font-size: 1.75em;
+    font-weight: normal;
+    grid-column: 2 / 3;
+    place-self: end start;
+    cursor: default;
+    h3 {
+        font-weight: normal;
+        font-size: 1.15em;
+        transition: all 0.4s ease;
+        color: var(--secondary-color);
+    }
+    h3:hover {
+        color: var(--accent-color);
+        scale: 1.075
+    }
+}
+
+.about-me-text {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    font-size: .8em;
+    p {
+        margin-bottom: 20px;
+    }
+    p:nth-child(3) {
+        margin: 0;
+    }
+}
+
+.highlighted-name {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.about-me-img {
+    grid-row: 2 / 3;
+    border-radius: 50%;
+    place-self: start center;
+    transition: border-radius 0.3s ease-out;
+}
+
+.about-me-img:hover {
+    border-radius: 25%;
+}
+
+
+.socials {
+    grid-column: 2 / 3;
+    /* margin: auto; */
+    /* place-self: start end; */
+    h3 {
+        color: var(--secondary-color);
+        transition: all 0.4s ease;
+    }
+}
+
+.social {
+    font-size: 1.6em;
+    margin-right: 10px;
+    transition: color 0.4s ease;
+}
+
+.social:hover {
+    color: var(--secondary-color);
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    gap: 40px 0;
+    min-height: 100vh;
+    position: relative;
+}
+
+.title {
+    font-family: 'heal the web', 'Satoshi', sans-serif;
+    font-weight: normal;
+    font-size: 1.75em;
+    cursor: default;
+    transition: all 0.4s ease;
+}
+
+.title:hover {
+    color: var(--accent-color);
+    scale: 1.075
+}
+
+/* .svg-blob {
+    position: absolute;
+    /* stroke: var(--dominant-color);
+    fill: var(--dominant-color);
+} */
+/* 
+.first-card {
+    top: 4em;
+    left: 6em;
+}
+
+.second-card {
+    top: 19em;
+    right: 4.5em;
+} */
+
+.svg-projects-line {
+    position: absolute;
+    z-index: 1;
+}
+/* .svg-triangles-project-sec {
+    position: absolute;
+    top: 6em;
+    opacity: 0.95;
+}
+
+
+
+.svg-dots-project-sec {
+    position: absolute;
+    top: 20em;
+    right: 32.5em;
+    opacity: 0.9;
+} */
+
+.cards-container {
+    display: grid;
+    /* justify-content: center; */
+    gap: 0 200px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 150px 170px 125px;
+    /* grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+    "cardline1 blank" 
+    "blank cardline2"; */
+    margin: 0;
+}
+
+.line1 {
+    grid-row: 1 / 3;
+}
+
+.line2 {
+    grid-row: 2 / 4;
+}
+
+.for-line1 {
+    grid-row: 3 / 4;
+    place-self: end center;
+}
+
+.for-line2 {
+    place-self: center;
+    /* z-index: 3; */
+}
+
+.card {
+    /* font-family: "Roboto Mono", monospace; */
+    /* font-size: .69em; */
+    position: relative;
+    z-index: 2;
+    /* background-color: var(--dominant-color); */
+    font-size: .75em;
+    padding: 30px;
+    width: 300px;
+    margin: 10px;
+    /* border-radius: 92% 8% 82% 18% / 9% 92% 8% 91% ; */
+    /* box-shadow: 0px 0px 9px 5px rgba(0,0,0,0.1); */
+    transition: all 0.3s ease;
+}
+
+.blob-background {
+    position: absolute;
+    z-index: -1;
+    /* top: -4em;
+    left: -4em; */
+    transition: all 0.3s ease;
+    path {
+        filter: drop-shadow(0 0 10px rgba(0,0,0,0.2));
+    }
+}
+
+.first-card {
+    top: -4em;
+    left: -4em;
+}
+
+.second-card {
+    top: -5em;
+    left: -4.5em;
+}
+
+.card-content {
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+.card-content:hover ~ .blob-background, .card-content:hover, .card-hovered, .card-hovered ~ .blob-background {
+    scale: 1.025;
+    /* transition: all 0.4s ease; */
+}
+/* 
+.card-hovered {
+    transition: all 0.4s ease;
+} */
+
+.card-title {
+    color: var(--accent-color);
+    margin: 10px 0;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.card-title:hover {
+    color: var(--secondary-color);
+    scale: 1.025;
+}
+
+.card-tech {
+    cursor: default;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.card-tech:hover {
+    color: var(--secondary-color);
+    scale: 1.025;
+}
+
+.tech-list {
+    list-style: disc;
+    margin: initial;
+}
+
+.icon {
+    font-size: 0.8em;
+}
+
+.card-links {
+    position: relative;
+    transition: all .4s ease;
+}
+
+.card-link {
+    /* font-family: "Amiko", sans-serif; */
+    position: relative;
+    z-index: 4;
+    cursor: default;
+    display: block;
+    background-color: var(--accent-color);
+    color: var(--dominant-color);
+    padding: 10px;
+    border-radius: 100px;
+    font-size: .6em;
+    box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.1);
+    transition: all .3s ease;
+    a {
+        font-weight: bolder;
+    }
+}
+
+.card-link:hover {
+    box-shadow: 0 0 12px 3px rgba(240, 209, 159, 0.2);
+    scale: 1.05;
+}
+
+
+.card-link-line {
+    position: absolute;
+    z-index: -2;
+}
+
+.for-link1 {
+    top: -3.5em;
+    right: 5em;
+    transform: rotate(-10deg);
+}
+
+.for-link2 {
+    top: 0.5em;
+    right: 5em;
+    transform: rotate(-10deg);
+    z-index: -2;
+}
+
 .none {
     display: none;
-}
-
-.wigglecurve {
-    position: absolute;
-    background-color: #272727;
-}
-
-#ease {
-    stroke: #D4AA7D;
-    fill: none;
 }
