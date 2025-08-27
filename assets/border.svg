@@ -1,0 +1,8 @@
+<svg width="300" height="150" mlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <rect 
+    x="5" y="5" width="290" height="140"
+    fill="none" 
+    stroke="white" 
+    stroke-width="6"
+    stroke-dasharray="20 10" />
+</svg>
