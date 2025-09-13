@@ -14,333 +14,391 @@
 </head>
 
 <body>
-	<aside class="sidebar">
-		<nav class="navbar">
-			<ul>
-				<li class="navbar-item hero-link"><a href="#home"><svg width="1em" height="1em" viewBox="0 0 156 122"
-							fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-active none">
-							<path d="M78 117H155.909" stroke-width="10" />
-							<path d="M16 111.419L65.3648 57.7097L16 4" stroke-width="15" />
-						</svg><span class="label">Landing</span></a></li>
-				<li class="navbar-item about-me-link"><a href="#about"><svg width="1em" height="1em"
-							viewBox="0 0 156 122" fill="none" xmlns="http://www.w3.org/2000/svg"
-							class="svg-active none">
-							<path d="M78 117H155.909" stroke-width="10" />
-							<path d="M16 111.419L65.3648 57.7097L16 4" stroke-width="15" />
-						</svg><span class="label">About me</span></a></li>
-				<li class="navbar-item projects-link"><a href="#projects"><svg width="1em" height="1em"
-							viewBox="0 0 156 122" fill="none" xmlns="http://www.w3.org/2000/svg"
-							class="svg-active none">
-							<path d="M78 117H155.909" stroke-width="10" />
-							<path d="M16 111.419L65.3648 57.7097L16 4" stroke-width="15" />
-						</svg><span class="label">Projects</span></a></li>
-				<li class="navbar-item connect-link"><a href="#connect"><svg width="1em" height="1em"
-							viewBox="0 0 156 122" fill="none" xmlns="http://www.w3.org/2000/svg"
-							class="svg-active none">
-							<path d="M78 117H155.909" stroke-width="10" />
-							<path d="M16 111.419L65.3648 57.7097L16 4" stroke-width="15" />
-						</svg><span class="label">Let's Connect</span></a></li>
-			</ul>
-		</nav>
-	</aside>
 
-	<main class="main">
-		<section id="home" class="sec about active-sec">
+	<div class="loader" style="display: none;">
+
+	</div>
+
+
+
+	<div class="content">
+
+		<div class="cursor-dot"></div>
+		<aside class="sidebar">
+
+
+			<div class="header-mobile">
+				<div class="header-text">
+					<span>Online Portfolio</span>
+					<span>ggg - ghali</span>
+				</div>
+
+				<button class="nav-toggle-btn">
+					<!-- <dotlottie-wc src="https://lottie.host/d2c2c11a-7087-4394-9366-a3f4b974f3af/aR5okO3Vpy.lottie"
+				 speed="1" interaction="click"></dotlottie-wc> -->
+					<canvas class="toggle-btn-icon" id="menu-bars"></canvas>
+
+				</button>
 			</div>
-			<div class="about-text-container">
-				<h1 class="welcome" id="typing"></h1>
-				<p class="about-text">A young Moroccan, student passionate about <span class="it dashed-line"
-						id="it">I.T<svg class="underline none" viewBox="0 0 1439 152" fill="none"
-							xmlns="http://www.w3.org/2000/svg">
-							<path d="M1321.26 134C1702.36 77.1318 931.86 -95.8395 18 134" stroke="#F0D19F"
-								stroke-width="35" stroke-linecap="round" />
-						</svg></span></p>
-				<ul class="contact-list">
-					<li class="contact linkdin"><a href="https://www.linkedin.com/in/ghali-belmkaddam-7a4479379/"
-							target="_blank"><svg width="1em" height="1em" viewBox="0 0 134 134" fill="none"
-								xmlns="http://www.w3.org/2000/svg" class="contact-icon">
-								<path class="external-link"
-									d="M83.75 0C79.1176 0 75.375 3.74258 75.375 8.375C75.375 13.0074 79.1176 16.75 83.75 16.75H105.394L52.684 69.4602C49.4125 72.7316 49.4125 78.0445 52.684 81.316C55.9555 84.5875 61.2684 84.5875 64.5398 81.316L117.25 28.6059V50.25C117.25 54.8824 120.993 58.625 125.625 58.625C130.257 58.625 134 54.8824 134 50.25V8.375C134 3.74258 130.257 0 125.625 0H83.75ZM20.9375 25.125C9.36953 25.125 0 34.4945 0 46.0625V113.062C0 124.63 9.36953 134 20.9375 134H87.9375C99.5055 134 108.875 124.63 108.875 113.062V92.125C108.875 87.4926 105.132 83.75 100.5 83.75C95.8676 83.75 92.125 87.4926 92.125 92.125V113.062C92.125 115.366 90.2406 117.25 87.9375 117.25H20.9375C18.6344 117.25 16.75 115.366 16.75 113.062V46.0625C16.75 43.7594 18.6344 41.875 20.9375 41.875H41.875C46.5074 41.875 50.25 38.1324 50.25 33.5C50.25 28.8676 46.5074 25.125 41.875 25.125H20.9375Z" />
-								<path class="linkdin logo"
-									d="M124.429 0H9.54152C4.27723 0 0 4.33705 0 9.66116V124.339C0 129.663 4.27723 134 9.54152 134H124.429C129.693 134 134 129.663 134 124.339V9.66116C134 4.33705 129.693 0 124.429 0ZM40.4991 114.857H20.6384V50.908H40.529V114.857H40.4991ZM30.5687 19.1429C36.9397 19.1429 42.0844 24.2875 42.0844 30.6585C42.0844 37.0295 36.9397 42.1741 30.5687 42.1741C24.1978 42.1741 19.0531 37.0295 19.0531 30.6585C19.0531 24.2875 24.1978 19.1429 30.5687 19.1429ZM114.947 114.857H95.0862V83.75C95.0862 76.3321 94.9366 66.7906 84.767 66.7906C74.4179 66.7906 72.8326 74.8665 72.8326 83.2116V114.857H52.9719V50.908H72.025V59.642H72.2942C74.9563 54.617 81.4469 49.3228 91.108 49.3228C111.208 49.3228 114.947 62.5732 114.947 79.8018V114.857Z" />
-							</svg>
-							Linkdin</a>
-					</li>
-					<li class="contact github"><a href="https://github.com/ggg-codes" target="_blank"><svg width="1em"
-								height="1em" viewBox="0 0 134 130" fill="none" xmlns="http://www.w3.org/2000/svg"
-								class="contact-icon">
-								<path class="github logo"
-									d="M44.8198 104.676C44.8198 105.213 44.1984 105.644 43.4149 105.644C42.5234 105.724 41.902 105.294 41.902 104.676C41.902 104.138 42.5234 103.708 43.3069 103.708C44.1173 103.627 44.8198 104.058 44.8198 104.676ZM36.4177 103.466C36.2286 104.004 36.769 104.622 37.5794 104.783C38.2819 105.052 39.0923 104.783 39.2544 104.246C39.4165 103.708 38.9032 103.09 38.0927 102.848C37.3903 102.66 36.6069 102.929 36.4177 103.466ZM48.3589 103.009C47.5754 103.197 47.0351 103.708 47.1161 104.326C47.1972 104.864 47.8996 105.213 48.7101 105.025C49.4936 104.837 50.0339 104.326 49.9528 103.789C49.8718 103.278 49.1423 102.929 48.3589 103.009ZM66.1355 0C28.6641 0 0 28.306 0 65.5904C0 95.4018 18.8573 120.912 45.7923 129.89C49.2504 130.509 50.4661 128.385 50.4661 126.638C50.4661 124.971 50.3851 115.778 50.3851 110.133C50.3851 110.133 31.4738 114.165 27.5024 102.122C27.5024 102.122 24.4226 94.2996 19.9919 92.2835C19.9919 92.2835 13.8052 88.0632 20.4242 88.1438C20.4242 88.1438 27.1512 88.6814 30.8524 95.0792C36.769 105.455 46.6839 102.472 50.5472 100.697C51.1686 96.3964 52.9246 93.4125 54.8698 91.6384C39.7677 89.9717 24.5306 87.7943 24.5306 61.9345C24.5306 54.5422 26.5839 50.8326 30.9065 46.1014C30.204 44.3542 27.9077 37.15 31.6089 27.849C37.2552 26.1018 50.25 35.107 50.25 35.107C55.6532 33.6016 61.4617 32.8221 67.2161 32.8221C72.9706 32.8221 78.779 33.6016 84.1823 35.107C84.1823 35.107 97.177 26.0749 102.823 27.849C106.525 37.1768 104.228 44.3542 103.526 46.1014C107.848 50.8594 110.496 54.5691 110.496 61.9345C110.496 87.875 94.5835 89.9449 79.4815 91.6384C81.9669 93.762 84.0742 97.7942 84.0742 104.111C84.0742 113.17 83.9931 124.38 83.9931 126.584C83.9931 128.331 85.2359 130.455 88.6669 129.837C115.683 120.912 134 95.4018 134 65.5904C134 28.306 103.607 0 66.1355 0ZM26.2597 92.7136C25.9085 92.9824 25.9895 93.6007 26.4488 94.1115C26.881 94.5416 27.5024 94.7297 27.8536 94.3803C28.2048 94.1115 28.1238 93.4932 27.6645 92.9824C27.2323 92.5523 26.6109 92.3642 26.2597 92.7136ZM23.3419 90.5362C23.1528 90.8857 23.423 91.3158 23.9633 91.5846C24.3956 91.8534 24.9359 91.7728 25.125 91.3964C25.3141 91.047 25.044 90.6169 24.5036 90.3481C23.9633 90.1868 23.531 90.2674 23.3419 90.5362ZM32.0952 100.106C31.6629 100.455 31.825 101.262 32.4464 101.773C33.0677 102.391 33.8512 102.472 34.2024 102.041C34.5536 101.692 34.3915 100.886 33.8512 100.375C33.2569 99.7565 32.4464 99.6759 32.0952 100.106ZM29.0153 96.1544C28.5831 96.4233 28.5831 97.1222 29.0153 97.7404C29.4476 98.3587 30.177 98.6275 30.5282 98.3587C30.9605 98.0092 30.9605 97.3103 30.5282 96.6921C30.15 96.0738 29.4476 95.805 29.0153 96.1544Z" />
-								<path class="external-link"
-									d="M83.25 0C78.7559 0 75.125 3.63086 75.125 8.125C75.125 12.6191 78.7559 16.25 83.25 16.25H104.248L53.1113 67.3867C49.9375 70.5605 49.9375 75.7148 53.1113 78.8887C56.2852 82.0625 61.4395 82.0625 64.6133 78.8887L115.75 27.752V48.75C115.75 53.2441 119.381 56.875 123.875 56.875C128.369 56.875 132 53.2441 132 48.75V8.125C132 3.63086 128.369 0 123.875 0H83.25ZM22.3125 24.375C11.0898 24.375 2 33.4648 2 44.6875V109.688C2 120.91 11.0898 130 22.3125 130H87.3125C98.5352 130 107.625 120.91 107.625 109.688V89.375C107.625 84.8809 103.994 81.25 99.5 81.25C95.0059 81.25 91.375 84.8809 91.375 89.375V109.688C91.375 111.922 89.5469 113.75 87.3125 113.75H22.3125C20.0781 113.75 18.25 111.922 18.25 109.688V44.6875C18.25 42.4531 20.0781 40.625 22.3125 40.625H42.625C47.1191 40.625 50.75 36.9941 50.75 32.5C50.75 28.0059 47.1191 24.375 42.625 24.375H22.3125Z" />
-							</svg>
-							Github</a>
-					</li>
+
+			<div class="nav-links">
+				<ul>
+					<div class="mask-y-mobile full-width">
+						<li class=" navbar-item hero-link"><a href="#home" data-link="0"
+								onclick="scrollController.goToSectionBtn(this)" class="hero-sec-link"><svg width="1em"
+									height="1em" viewBox="0 0 156 122" fill="none" xmlns="http://www.w3.org/2000/svg"
+									class="svg-active none">
+									<path d="M78 117H155.909" stroke-width="10" />
+									<path d="M16 111.419L65.3648 57.7097L16 4" stroke-width="15" />
+								</svg><span class="label">Landing</span></a></li>
+					</div>
+					<div class="mask-y-mobile full-width">
+						<li class="navbar-item about-me-link"><a href="#about" data-link="1"
+								onclick="scrollController.goToSectionBtn(this)" class="about-sec-link"><svg width="1em"
+									height="1em" viewBox="0 0 156 122" fill="none" xmlns="http://www.w3.org/2000/svg"
+									class="svg-active none">
+									<path d="M78 117H155.909" stroke-width="10" />
+									<path d="M16 111.419L65.3648 57.7097L16 4" stroke-width="15" />
+								</svg><span class="label">About me</span></a></li>
+					</div>
+					<div class="mask-y-mobile full-width">
+						<li class="navbar-item projects-link"><a href="#projects" data-link="2"
+								onclick="scrollController.goToSectionBtn(this)" class="projects-sec-link"><svg
+									width="1em" height="1em" viewBox="0 0 156 122" fill="none"
+									xmlns="http://www.w3.org/2000/svg" class="svg-active none">
+									<path d="M78 117H155.909" stroke-width="10" />
+									<path d="M16 111.419L65.3648 57.7097L16 4" stroke-width="15" />
+								</svg><span class="label">Works</span></a></li>
+					</div>
+					<div class="mask-y-mobile full-width">
+						<li class="navbar-item connect-link"><a href="#connect" data-link="3"
+								onclick="scrollController.goToSectionBtn(this)" class="connect-sec-link"><svg
+									width="1em" height="1em" viewBox="0 0 156 122" fill="none"
+									xmlns="http://www.w3.org/2000/svg" class="svg-active none">
+									<path d="M78 117H155.909" stroke-width="10" />
+									<path d="M16 111.419L65.3648 57.7097L16 4" stroke-width="15" />
+								</svg><span class="label">Let's Connect</span></a></li>
+					</div>
 				</ul>
 			</div>
-			<div class="scroll-down of-hero">
-				<p>Scroll Down For More</p>
-				<div class="mouse">
-					<div class="wheel"></div>
-				</div>
-			</div>
-		</section>
 
-		<section id="about" class="sec about-me">
-			<img src="assets/pfpe.png" alt="picture of me" width="250px" class="about-me-img">
-			<div class="about-me-title mask">
-				<h3 class="about-me-header">About me</h3>
+			<div class="footer">
+				<span><i class="fa-regular fa-copyright"></i> All rights reserved. ggg</span>
 			</div>
-			<div class="about-me-text">
-				<p>I'm <span class="highlighted-name">Ghali</span>, an 18-year-old Moroccan IT student with a curious
-					mind and a love for building and learning stuff.<br>From crafting websites to coding useful tools, I
-					enjoy turning ideas into experiences that are both functional and appealing.</p>
-				<p>I'm passionate about learning — whether it's mastering a new technology, exploring creative design
-					concepts, or diving into completely new subjects outside of tech. I believe every skill or piece of
-					knowledge adds another layer to how I think, create, and solve problems.</p>
-				<p>When I'm not coding, you might find me exploring music, watching movies, surfing or cycling with my
-					friends, or just having fun.</p>
-			</div>
-			<div class="socials">
-				<div class="mask">
-					<h3>My socials</h3>
+		</aside>
+
+		<main class="main">
+			<section id="home" class="sec about active-sec">
+				<div class="about-text-container">
+					<h1 class="welcome" id="typing"></h1>
+					<p class="about-text">A young Moroccan, student passionate about <span class="it dashed-line"
+							id="it">I.T<svg class="underline none" viewBox="0 0 1439 152" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path d="M1321.26 134C1702.36 77.1318 931.86 -95.8395 18 134" stroke="#F0D19F"
+									stroke-width="35" stroke-linecap="round" />
+							</svg></span></p>
+					<ul class="contact-list">
+						<li class="contact linkdin"><a href="https://www.linkedin.com/in/ghali-belmkaddam-7a4479379/"
+								target="_blank"><svg width="1em" height="1em" viewBox="0 0 134 134" fill="none"
+									xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+									<path class="external-link"
+										d="M83.75 0C79.1176 0 75.375 3.74258 75.375 8.375C75.375 13.0074 79.1176 16.75 83.75 16.75H105.394L52.684 69.4602C49.4125 72.7316 49.4125 78.0445 52.684 81.316C55.9555 84.5875 61.2684 84.5875 64.5398 81.316L117.25 28.6059V50.25C117.25 54.8824 120.993 58.625 125.625 58.625C130.257 58.625 134 54.8824 134 50.25V8.375C134 3.74258 130.257 0 125.625 0H83.75ZM20.9375 25.125C9.36953 25.125 0 34.4945 0 46.0625V113.062C0 124.63 9.36953 134 20.9375 134H87.9375C99.5055 134 108.875 124.63 108.875 113.062V92.125C108.875 87.4926 105.132 83.75 100.5 83.75C95.8676 83.75 92.125 87.4926 92.125 92.125V113.062C92.125 115.366 90.2406 117.25 87.9375 117.25H20.9375C18.6344 117.25 16.75 115.366 16.75 113.062V46.0625C16.75 43.7594 18.6344 41.875 20.9375 41.875H41.875C46.5074 41.875 50.25 38.1324 50.25 33.5C50.25 28.8676 46.5074 25.125 41.875 25.125H20.9375Z" />
+									<path class="linkdin logo"
+										d="M124.429 0H9.54152C4.27723 0 0 4.33705 0 9.66116V124.339C0 129.663 4.27723 134 9.54152 134H124.429C129.693 134 134 129.663 134 124.339V9.66116C134 4.33705 129.693 0 124.429 0ZM40.4991 114.857H20.6384V50.908H40.529V114.857H40.4991ZM30.5687 19.1429C36.9397 19.1429 42.0844 24.2875 42.0844 30.6585C42.0844 37.0295 36.9397 42.1741 30.5687 42.1741C24.1978 42.1741 19.0531 37.0295 19.0531 30.6585C19.0531 24.2875 24.1978 19.1429 30.5687 19.1429ZM114.947 114.857H95.0862V83.75C95.0862 76.3321 94.9366 66.7906 84.767 66.7906C74.4179 66.7906 72.8326 74.8665 72.8326 83.2116V114.857H52.9719V50.908H72.025V59.642H72.2942C74.9563 54.617 81.4469 49.3228 91.108 49.3228C111.208 49.3228 114.947 62.5732 114.947 79.8018V114.857Z" />
+								</svg>
+								Linkdin</a>
+						</li>
+						<li class="contact github"><a href="https://github.com/ggg-codes" target="_blank"><svg
+									width="1em" height="1em" viewBox="0 0 134 130" fill="none"
+									xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+									<path class="github logo"
+										d="M44.8198 104.676C44.8198 105.213 44.1984 105.644 43.4149 105.644C42.5234 105.724 41.902 105.294 41.902 104.676C41.902 104.138 42.5234 103.708 43.3069 103.708C44.1173 103.627 44.8198 104.058 44.8198 104.676ZM36.4177 103.466C36.2286 104.004 36.769 104.622 37.5794 104.783C38.2819 105.052 39.0923 104.783 39.2544 104.246C39.4165 103.708 38.9032 103.09 38.0927 102.848C37.3903 102.66 36.6069 102.929 36.4177 103.466ZM48.3589 103.009C47.5754 103.197 47.0351 103.708 47.1161 104.326C47.1972 104.864 47.8996 105.213 48.7101 105.025C49.4936 104.837 50.0339 104.326 49.9528 103.789C49.8718 103.278 49.1423 102.929 48.3589 103.009ZM66.1355 0C28.6641 0 0 28.306 0 65.5904C0 95.4018 18.8573 120.912 45.7923 129.89C49.2504 130.509 50.4661 128.385 50.4661 126.638C50.4661 124.971 50.3851 115.778 50.3851 110.133C50.3851 110.133 31.4738 114.165 27.5024 102.122C27.5024 102.122 24.4226 94.2996 19.9919 92.2835C19.9919 92.2835 13.8052 88.0632 20.4242 88.1438C20.4242 88.1438 27.1512 88.6814 30.8524 95.0792C36.769 105.455 46.6839 102.472 50.5472 100.697C51.1686 96.3964 52.9246 93.4125 54.8698 91.6384C39.7677 89.9717 24.5306 87.7943 24.5306 61.9345C24.5306 54.5422 26.5839 50.8326 30.9065 46.1014C30.204 44.3542 27.9077 37.15 31.6089 27.849C37.2552 26.1018 50.25 35.107 50.25 35.107C55.6532 33.6016 61.4617 32.8221 67.2161 32.8221C72.9706 32.8221 78.779 33.6016 84.1823 35.107C84.1823 35.107 97.177 26.0749 102.823 27.849C106.525 37.1768 104.228 44.3542 103.526 46.1014C107.848 50.8594 110.496 54.5691 110.496 61.9345C110.496 87.875 94.5835 89.9449 79.4815 91.6384C81.9669 93.762 84.0742 97.7942 84.0742 104.111C84.0742 113.17 83.9931 124.38 83.9931 126.584C83.9931 128.331 85.2359 130.455 88.6669 129.837C115.683 120.912 134 95.4018 134 65.5904C134 28.306 103.607 0 66.1355 0ZM26.2597 92.7136C25.9085 92.9824 25.9895 93.6007 26.4488 94.1115C26.881 94.5416 27.5024 94.7297 27.8536 94.3803C28.2048 94.1115 28.1238 93.4932 27.6645 92.9824C27.2323 92.5523 26.6109 92.3642 26.2597 92.7136ZM23.3419 90.5362C23.1528 90.8857 23.423 91.3158 23.9633 91.5846C24.3956 91.8534 24.9359 91.7728 25.125 91.3964C25.3141 91.047 25.044 90.6169 24.5036 90.3481C23.9633 90.1868 23.531 90.2674 23.3419 90.5362ZM32.0952 100.106C31.6629 100.455 31.825 101.262 32.4464 101.773C33.0677 102.391 33.8512 102.472 34.2024 102.041C34.5536 101.692 34.3915 100.886 33.8512 100.375C33.2569 99.7565 32.4464 99.6759 32.0952 100.106ZM29.0153 96.1544C28.5831 96.4233 28.5831 97.1222 29.0153 97.7404C29.4476 98.3587 30.177 98.6275 30.5282 98.3587C30.9605 98.0092 30.9605 97.3103 30.5282 96.6921C30.15 96.0738 29.4476 95.805 29.0153 96.1544Z" />
+									<path class="external-link"
+										d="M83.25 0C78.7559 0 75.125 3.63086 75.125 8.125C75.125 12.6191 78.7559 16.25 83.25 16.25H104.248L53.1113 67.3867C49.9375 70.5605 49.9375 75.7148 53.1113 78.8887C56.2852 82.0625 61.4395 82.0625 64.6133 78.8887L115.75 27.752V48.75C115.75 53.2441 119.381 56.875 123.875 56.875C128.369 56.875 132 53.2441 132 48.75V8.125C132 3.63086 128.369 0 123.875 0H83.25ZM22.3125 24.375C11.0898 24.375 2 33.4648 2 44.6875V109.688C2 120.91 11.0898 130 22.3125 130H87.3125C98.5352 130 107.625 120.91 107.625 109.688V89.375C107.625 84.8809 103.994 81.25 99.5 81.25C95.0059 81.25 91.375 84.8809 91.375 89.375V109.688C91.375 111.922 89.5469 113.75 87.3125 113.75H22.3125C20.0781 113.75 18.25 111.922 18.25 109.688V44.6875C18.25 42.4531 20.0781 40.625 22.3125 40.625H42.625C47.1191 40.625 50.75 36.9941 50.75 32.5C50.75 28.0059 47.1191 24.375 42.625 24.375H22.3125Z" />
+								</svg>
+								Github</a>
+						</li>
+					</ul>
 				</div>
-				<a href="https://www.instagram.com/ghali.mov/" class="social" target="_blank"><i
-						class="fa-brands fa-instagram"></i></a>
-				<a href="https://x.com/gggdottxt" class="social" target="_blank"><i
-						class="fa-brands fa-x-twitter"></i></a>
-				<a href="https://discord.gg/kYD96Kpz" class="social" target="_blank"><i
-						class="fa-brands fa-discord"></i></a>
-			</div>
-			<div class="scroll-down of-about">
-				<p>Scroll Down To See my <span class="highlighted-name">Projects</span></p>
-				<div class="mask">
+				<div class="scroll-down of-hero">
+					<p>Scroll Down For More</p>
 					<div class="mouse">
 						<div class="wheel"></div>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
 
-		<section id="projects" class="sec projects">
-			<div class="mask">
-				<h2 class="title">Projects</h2>
-			</div>
-			<ul class="cards-container">
-				<li class="card line1">
-					<div class="card-content of-line1">
-						<div class="mask">
-							<h3 class="card-title">Portfolio(this)</h3>
-						</div>
-						<p class="card-desc">My personal website where I share my projects and blogs (soon) about what
-							I've learned or worked on.💻👩‍💻</p>
-						<div class="mask">
-							<h4 class="card-tech"><i class="fa-solid fa-code icon"></i> Technologies</h4>
-						</div>
-						<ul>
-							<li class="tech-list">HTML, CSS, Javascript</li>
-							<li class="tech-list">GSAP (for animation)</li>
-						</ul>
+			<section id="about" class="sec about-me">
+				<img src="assets/pfpe.png" alt="picture of me" width="250px" class="about-me-img">
+				<div class="about-me-title mask">
+					<h3 class="about-me-header">About me</h3>
+				</div>
+				<div class="about-me-text">
+					<p>I'm <span class="highlighted-name">Ghali</span>, an 18-year-old Moroccan IT student with a
+						curious
+						mind and a love for building and learning stuff.<br>From crafting websites to coding useful
+						tools, I
+						enjoy turning ideas into experiences that are both functional and appealing.</p>
+					<p>I'm passionate about learning — whether it's mastering a new technology, exploring creative
+						design
+						concepts, or diving into completely new subjects outside of tech. I believe every skill or piece
+						of
+						knowledge adds another layer to how I think, create, and solve problems.</p>
+					<p>When I'm not coding, you might find me exploring music, watching movies, surfing or cycling with
+						my
+						friends, or just having fun.</p>
+				</div>
+				<div class="socials">
+					<div class="mask">
+						<h3>My socials</h3>
 					</div>
-					<svg width="550" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
-						class="blob-background first-card">
-						<!-- <path fill="#242424" id="first-start"
-							d="M3.1,-15.6C5.1,-4.1,8.6,-5.6,21.3,-5.1C34,-4.7,56,-2.3,59.1,1.8C62.2,5.9,46.5,11.9,34.5,13.5C22.5,15.2,14.1,12.6,9,14.3C3.9,16,1.9,21.9,-5.4,31.3C-12.8,40.7,-25.6,53.7,-36.9,55.5C-48.1,57.4,-57.8,48.2,-64.5,37.1C-71.1,26,-74.8,13,-75.7,-0.5C-76.5,-14,-74.7,-28,-64,-32.2C-53.4,-36.4,-33.9,-30.7,-21.7,-36.2C-9.6,-41.8,-4.8,-58.7,-2.1,-55C0.5,-51.3,1,-27,3.1,-15.6Z"
-							transform="translate(100 100)" /> -->
-						<!-- <path fill="#242424" id="first-mid" style="display: none;" d="M31,-50.4C42.6,-46.9,56.3,-43.6,57,-35.3C57.8,-26.9,45.6,-13.5,47.5,1.1C49.4,15.7,65.4,31.3,65.1,40.4C64.8,49.5,48.2,52.1,34.6,50.4C21.1,48.7,10.5,42.8,3.8,36.2C-2.9,29.5,-5.7,22.2,-16.2,22.1C-26.7,22,-44.8,29.2,-45.7,26.7C-46.6,24.2,-30.2,12.1,-30.7,-0.3C-31.2,-12.7,-48.5,-25.3,-54.3,-39.4C-60.2,-53.6,-54.5,-69.1,-43.6,-73.1C-32.6,-77,-16.3,-69.4,-3.3,-63.6C9.7,-57.8,19.3,-54,31,-50.4Z" transform="translate(100 100)" /> -->
-						<!-- <path fill="#242424" id="first-start"
-							d="M26.7,-44.8C40.4,-38.4,61.1,-42.8,67.9,-37.2C74.7,-31.5,67.5,-15.8,63.9,-2.1C60.3,11.6,60.3,23.2,55.1,31.6C49.9,40,39.5,45.2,29.4,50.9C19.4,56.6,9.7,62.7,-1.1,64.6C-11.8,66.4,-23.6,63.9,-38,60.7C-52.4,57.6,-69.3,53.7,-71.2,43.4C-73,33.2,-59.8,16.6,-55.4,2.5C-51,-11.5,-55.5,-23.1,-53.4,-33C-51.4,-42.9,-42.9,-51.3,-32.9,-59.8C-22.9,-68.3,-11.5,-77,-2.5,-72.7C6.5,-68.4,13.1,-51.2,26.7,-44.8Z"
-							transform="translate(100 100)" /> -->
-						<path fill="#272727" id="first-start"
-							d="M33.4,-52.7C43.3,-52.1,51.3,-43.2,54.1,-33C56.8,-22.9,54.2,-11.4,50.5,-2.2C46.7,7.1,41.8,14.2,41.4,28.4C41,42.6,45.1,63.9,39,68.7C32.8,73.5,16.4,61.8,0,61.8C-16.4,61.8,-32.8,73.5,-43.1,71.1C-53.5,68.8,-57.7,52.3,-60,38.1C-62.3,23.9,-62.6,11.9,-66.6,-2.3C-70.5,-16.5,-78.1,-33,-73,-42.3C-67.8,-51.5,-49.9,-53.5,-35.7,-51.6C-21.4,-49.6,-10.7,-43.7,0.5,-44.6C11.7,-45.5,23.5,-53.3,33.4,-52.7Z"
-							transform="translate(100 100)" />
-						<path fill="#242424" id="first-mid" style="display: none;"
-							d="M26.7,-44.8C40.4,-38.4,61.1,-42.8,67.9,-37.2C74.7,-31.5,67.5,-15.8,63.9,-2.1C60.3,11.6,60.3,23.2,55.1,31.6C49.9,40,39.5,45.2,29.4,50.9C19.4,56.6,9.7,62.7,-1.1,64.6C-11.8,66.4,-23.6,63.9,-38,60.7C-52.4,57.6,-69.3,53.7,-71.2,43.4C-73,33.2,-59.8,16.6,-55.4,2.5C-51,-11.5,-55.5,-23.1,-53.4,-33C-51.4,-42.9,-42.9,-51.3,-32.9,-59.8C-22.9,-68.3,-11.5,-77,-2.5,-72.7C6.5,-68.4,13.1,-51.2,26.7,-44.8Z"
-							transform="translate(100 100)" />
-
-						<path fill="#242424" id="first-end" style="display: none;"
-							d="M35.7,-64.9C45.5,-56.3,52.1,-45.1,61,-33.8C69.9,-22.6,81.1,-11.3,82.2,0.6C83.3,12.5,74.3,25.1,65.4,36.5C56.6,47.9,48.1,58.2,37.2,65.8C26.4,73.5,13.2,78.5,-0.6,79.6C-14.5,80.7,-28.9,78,-42.6,71.9C-56.3,65.9,-69.3,56.7,-73,44.2C-76.6,31.6,-71.1,15.8,-71.7,-0.4C-72.3,-16.5,-79.1,-33.1,-74.9,-44.8C-70.8,-56.4,-55.6,-63.3,-41.3,-69.3C-27,-75.3,-13.5,-80.4,-0.3,-80C13,-79.5,26,-73.5,35.7,-64.9Z"
-							transform="translate(100 100)" />
-					</svg>
-				</li>
-				<li class="card-links for-line1">
-					<span class="card-link for-line1">See code on <a href=""><i class="fa-brands fa-github"></i>
-							Github</a></span>
-					<svg width="10" height="136" viewBox="0 0 6 136" fill="none" xmlns="http://www.w3.org/2000/svg"
-						class="card-link-line for-link1">
-						<path d="M3 0V136" stroke="#F0D19F" stroke-width="10" />
-					</svg>
-				</li>
-				<li class="card line2">
-					<div class="card-content of-line2">
-						<div class="mask">
-							<h3 class="card-title">Hit Radio Bot</h3>
+					<a href="https://www.instagram.com/ghali.mov/" class="social" target="_blank"><i
+							class="fa-brands fa-instagram"></i></a>
+					<a href="https://x.com/gggdottxt" class="social" target="_blank"><i
+							class="fa-brands fa-x-twitter"></i></a>
+					<a href="https://discord.gg/kYD96Kpz" class="social" target="_blank"><i
+							class="fa-brands fa-discord"></i></a>
+				</div>
+				<div class="scroll-down of-about">
+					<p>Scroll Down To See my <span class="highlighted-name">Projects</span></p>
+					<div class="mask">
+						<div class="mouse">
+							<div class="wheel"></div>
 						</div>
-						<p class="card-desc">A Moroccan Discord bot built to stream HITRADIO stations 24/7. I founded it
-							in 2020.📻🤖</p>
-						<div class="mask">
-							<h4 class="card-tech"><i class="fa-solid fa-code icon"></i> Technologies</h4>
-						</div>
-						<ul>
-							<li class="tech-list">Node.js (Discord.js)</li>
-						</ul>
-					</div>
-					<svg width="580" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
-						class="blob-background second-card">
-						<path fill="#242424" id="second-start"
-							d="M32.1,-53.8C35.8,-53.5,29,-33.2,28.6,-20.9C28.2,-8.6,34.1,-4.3,39.9,3.3C45.7,11,51.4,21.9,47.8,27.3C44.2,32.7,31.4,32.4,21.9,29.4C12.4,26.3,6.2,20.5,-0.5,21.4C-7.2,22.3,-14.4,29.8,-22.6,32.1C-30.8,34.4,-40.1,31.4,-45.9,25.2C-51.7,19,-54.1,9.5,-56.6,-1.4C-59,-12.3,-61.5,-24.6,-58.1,-35C-54.6,-45.3,-45.2,-53.6,-34.5,-49.8C-23.8,-46,-11.9,-30.1,1.2,-32.1C14.2,-34.1,28.4,-54,32.1,-53.8Z"
-							transform="translate(100 100)" />
-						<path fill="#242424" id="second-mid" style="display: none;"
-							d="M38.4,-68.6C50.5,-59.5,61.5,-50.7,69.8,-39.3C78,-27.9,83.3,-14,79.4,-2.3C75.4,9.4,62,18.7,53.9,30.4C45.9,42,43.1,56,35,65.3C26.9,74.6,13.5,79.3,-0.4,80C-14.3,80.8,-28.6,77.6,-42.3,71.5C-56.1,65.4,-69.2,56.5,-74,44.1C-78.7,31.7,-75.1,15.8,-73.7,0.8C-72.3,-14.2,-73.1,-28.4,-65.9,-36.6C-58.7,-44.7,-43.5,-46.8,-31.1,-55.9C-18.8,-64.9,-9.4,-80.9,1.9,-84.1C13.1,-87.3,26.3,-77.8,38.4,-68.6Z"
-							transform="translate(100 100)" />
-
-						<path fill="#242424" id="second-end" style="display: none;"
-							d="M42.1,-71.3C51.6,-67.4,54.2,-50.1,55.4,-36C56.6,-21.9,56.5,-10.9,56,-0.3C55.6,10.4,54.8,20.8,52.2,32.5C49.5,44.1,44.9,57,35.9,67.5C26.9,78,13.4,86.1,-1.4,88.6C-16.3,91,-32.6,87.8,-45.8,79.8C-59,71.7,-69.1,58.7,-69.9,44.6C-70.7,30.5,-62.2,15.2,-60.4,1C-58.6,-13.1,-63.4,-26.3,-61.4,-38.4C-59.5,-50.4,-50.7,-61.5,-39.3,-64.2C-27.9,-67,-14,-61.6,1.2,-63.6C16.3,-65.6,32.6,-75.2,42.1,-71.3Z"
-							transform="translate(100 100)" />
-					</svg>
-				</li>
-				<li class="card-links for-line2">
-					<span class="card-link for-line2"><a href=""><i class="fa-brands fa-discord"></i> Add to your
-							server</a> or
-						join <a href=""> support server</a></span>
-					<svg width="6" height="136" viewBox="0 0 6 136" fill="none" xmlns="http://www.w3.org/2000/svg"
-						class="card-link-line for-link2">
-						<path d="M 3 136 L 3 0" stroke="#F0D19F" stroke-width="6" />
-					</svg>
-				</li>
-			</ul>
-			<svg width="282" height="164" viewBox="0 0 282 164" fill="none" xmlns="http://www.w3.org/2000/svg"
-				class="svg-projects-line">
-				<path d="M1 3.99994C180 -12.5 130.5 194.5 281 156" stroke="#F0D19F" stroke-width="5" />
-			</svg>
-
-			<div class="scroll-down of-projects">
-				<p>Scroll Down To <span class="highlighted-name">Connect</span></p>
-				<div class="mask">
-					<div class="mouse">
-						<div class="wheel"></div>
 					</div>
 				</div>
-			</div>
-			</div>
-		</section>
-		<section id="connect" class="sec connect">
-			<div class="mask">
-				<h2 class="connect-title">Let's Connect</h2>
-			</div>
-			<div class="connect-card">
-				<div class="mask">
-					<p class="connect-text">I'm always open to discussing new projects, creative ideas, or opportunities
-						to
-						be
-						part of your visions. Feel free to reach out to me through any of the platforms below. Whether
-						you
-						have
-						a
-						question, a collaboration proposal, or just want to say hi, I'm here to connect and explore how
-						we
-						can
-						work together to create something amazing.</p>
-				</div>
-				<ul class="contact-links">
-					<li>
-						<a class="btn email" href="mailto:ghali.belmkaddam@gmail.com"><span class="btn-label">Email Me
-								<i class="fa-solid fa-envelope"></i></span></a>
-					</li>
-					<span class="or">Or</span>
-					<li class="contact linkdin"><a href="https://www.linkedin.com/in/ghali-belmkaddam-7a4479379/"
-							target="_blank"><span class="label-contact">Linkedin</span> <svg width="1em" height="1em"
-								viewBox="0 0 134 134" fill="none" xmlns="http://www.w3.org/2000/svg"
-								class="contact-icon for-connect">
-								<path class="external-link"
-									d="M83.75 0C79.1176 0 75.375 3.74258 75.375 8.375C75.375 13.0074 79.1176 16.75 83.75 16.75H105.394L52.684 69.4602C49.4125 72.7316 49.4125 78.0445 52.684 81.316C55.9555 84.5875 61.2684 84.5875 64.5398 81.316L117.25 28.6059V50.25C117.25 54.8824 120.993 58.625 125.625 58.625C130.257 58.625 134 54.8824 134 50.25V8.375C134 3.74258 130.257 0 125.625 0H83.75ZM20.9375 25.125C9.36953 25.125 0 34.4945 0 46.0625V113.062C0 124.63 9.36953 134 20.9375 134H87.9375C99.5055 134 108.875 124.63 108.875 113.062V92.125C108.875 87.4926 105.132 83.75 100.5 83.75C95.8676 83.75 92.125 87.4926 92.125 92.125V113.062C92.125 115.366 90.2406 117.25 87.9375 117.25H20.9375C18.6344 117.25 16.75 115.366 16.75 113.062V46.0625C16.75 43.7594 18.6344 41.875 20.9375 41.875H41.875C46.5074 41.875 50.25 38.1324 50.25 33.5C50.25 28.8676 46.5074 25.125 41.875 25.125H20.9375Z" />
-								<path class="linkdin logo"
-									d="M124.429 0H9.54152C4.27723 0 0 4.33705 0 9.66116V124.339C0 129.663 4.27723 134 9.54152 134H124.429C129.693 134 134 129.663 134 124.339V9.66116C134 4.33705 129.693 0 124.429 0ZM40.4991 114.857H20.6384V50.908H40.529V114.857H40.4991ZM30.5687 19.1429C36.9397 19.1429 42.0844 24.2875 42.0844 30.6585C42.0844 37.0295 36.9397 42.1741 30.5687 42.1741C24.1978 42.1741 19.0531 37.0295 19.0531 30.6585C19.0531 24.2875 24.1978 19.1429 30.5687 19.1429ZM114.947 114.857H95.0862V83.75C95.0862 76.3321 94.9366 66.7906 84.767 66.7906C74.4179 66.7906 72.8326 74.8665 72.8326 83.2116V114.857H52.9719V50.908H72.025V59.642H72.2942C74.9563 54.617 81.4469 49.3228 91.108 49.3228C111.208 49.3228 114.947 62.5732 114.947 79.8018V114.857Z" />
-							</svg>
-						</a>
-					</li>
-					<li class="contact github"><a href="https://github.com/ggg-codes" target="_blank"><span
-								class="label-contact">Discord</span>
-							<svg class="contact-icon for-connect" width="1em" height="1em" viewBox="0 0 146 142"
-								fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path class="external-link"
-									d="M90.7053 0C85.8087 0 81.8527 3.96602 81.8527 8.875C81.8527 13.784 85.8087 17.75 90.7053 17.75H113.584L57.8677 73.607C54.4096 77.0738 54.4096 82.7039 57.8677 86.1707C61.3257 89.6375 66.9416 89.6375 70.3996 86.1707L126.116 30.3137V53.25C126.116 58.159 130.072 62.125 134.968 62.125C139.865 62.125 143.821 58.159 143.821 53.25V8.875C143.821 3.96602 139.865 0 134.968 0H90.7053ZM24.3107 26.625C12.0831 26.625 2.1792 36.5539 2.1792 48.8125V119.812C2.1792 132.071 12.0831 142 24.3107 142H95.1316C107.359 142 117.263 132.071 117.263 119.812V97.625C117.263 92.716 113.307 88.75 108.411 88.75C103.514 88.75 99.5579 92.716 99.5579 97.625V119.812C99.5579 122.253 97.5661 124.25 95.1316 124.25H24.3107C21.8763 124.25 19.8844 122.253 19.8844 119.812V48.8125C19.8844 46.3719 21.8763 44.375 24.3107 44.375H46.4423C51.3389 44.375 55.2949 40.409 55.2949 35.5C55.2949 30.591 51.3389 26.625 46.4423 26.625H24.3107Z" />
-								<path class="discord logo"
-									d="M122.93 25.3594C122.883 25.2891 122.836 25.2188 122.742 25.1953C113.813 21.0938 104.367 18.1641 94.6877 16.5C94.594 16.4766 94.5002 16.5 94.4299 16.5234C94.3596 16.5469 94.2893 16.6172 94.2424 16.7109C92.9533 19.0313 91.7815 21.4453 90.7502 23.8828C80.2971 22.2891 69.6799 22.2891 59.2502 23.8828C58.1955 21.4219 57.0237 19.0313 55.7112 16.7109C55.6643 16.6406 55.594 16.5703 55.5237 16.5234C55.4533 16.4766 55.3596 16.4766 55.2658 16.4766C45.5862 18.1406 36.1408 21.0703 27.2112 25.1719C27.1408 25.1953 27.0705 25.2656 27.0237 25.3359C9.16429 52.0078 4.26585 78.0469 6.65647 103.734C6.65647 103.805 6.67991 103.852 6.70335 103.922C6.72678 103.992 6.77366 104.016 6.82053 104.063C17.2268 111.773 28.8518 117.656 41.2268 121.453C41.3205 121.477 41.4143 121.477 41.4846 121.453C41.5549 121.43 41.6487 121.359 41.6955 121.289C44.344 117.68 46.7112 113.836 48.7268 109.852C48.7502 109.805 48.7737 109.734 48.7737 109.664C48.7737 109.594 48.7737 109.547 48.7502 109.477C48.7268 109.406 48.7033 109.359 48.6565 109.336C48.6096 109.313 48.5627 109.266 48.4924 109.242C44.7893 107.813 41.1799 106.102 37.7346 104.109C37.6643 104.063 37.6174 104.016 37.5705 103.969C37.5237 103.922 37.5002 103.828 37.5002 103.758C37.5002 103.688 37.5002 103.617 37.5471 103.547C37.594 103.477 37.6174 103.43 37.6877 103.383C38.4143 102.844 39.1408 102.281 39.8205 101.719C39.8908 101.672 39.9612 101.625 40.0315 101.625C40.1018 101.625 40.1955 101.625 40.2658 101.648C62.8127 111.938 87.2346 111.938 109.524 101.648C109.594 101.625 109.688 101.602 109.758 101.602C109.828 101.602 109.922 101.648 109.969 101.695C110.649 102.258 111.375 102.844 112.102 103.383C112.149 103.43 112.196 103.477 112.242 103.547C112.289 103.617 112.289 103.688 112.289 103.758C112.289 103.828 112.266 103.898 112.219 103.969C112.172 104.039 112.125 104.086 112.078 104.109C108.633 106.125 105.047 107.836 101.321 109.219C101.274 109.242 101.203 109.266 101.156 109.313C101.11 109.359 101.086 109.406 101.063 109.477C101.039 109.547 101.039 109.594 101.039 109.664C101.039 109.734 101.063 109.781 101.086 109.852C103.149 113.836 105.492 117.656 108.117 121.289C108.164 121.359 108.258 121.43 108.328 121.453C108.399 121.477 108.516 121.477 108.586 121.453C120.985 117.656 132.633 111.773 143.063 104.063C143.11 104.016 143.156 103.969 143.18 103.922C143.203 103.875 143.227 103.805 143.227 103.734C146.11 74.0156 138.422 48.2109 122.86 25.3359L122.93 25.3594ZM52.1487 88.1016C45.3518 88.1016 39.7737 81.8672 39.7737 74.2266C39.7737 66.5859 45.258 60.3516 52.1487 60.3516C59.1096 60.3516 64.6408 66.6328 64.5237 74.2266C64.5237 81.8906 59.0393 88.1016 52.1487 88.1016ZM97.9455 88.1016C91.1487 88.1016 85.5705 81.8672 85.5705 74.2266C85.5705 66.5859 91.0549 60.3516 97.9455 60.3516C104.906 60.3516 110.438 66.6328 110.321 74.2266C110.321 81.8906 104.883 88.1016 97.9455 88.1016Z" />
-							</svg>
+			</section>
 
-						</a>
+			<section id="projects" class="sec projects">
+				<div class="mask">
+					<h2 class="title">Works</h2>
+				</div>
+				<ul class="cards-container">
+					<li class="card line1">
+						<div class="card-content of-line1">
+							<div class="mask">
+								<h3 class="card-title">Portfolio(this)</h3>
+							</div>
+							<p class="card-desc">My personal website where I share my projects and blogs (soon) about
+								what
+								I've learned or worked on.💻👩‍💻</p>
+							<div class="mask">
+								<h4 class="card-tech"><i class="fa-solid fa-code icon"></i> Technologies</h4>
+							</div>
+							<ul>
+								<li class="tech-list">HTML, CSS, Javascript</li>
+								<li class="tech-list">GSAP (for animation)</li>
+							</ul>
+						</div>
+						<svg width="430" viewBox="0 0 165 170" xmlns="http://www.w3.org/2000/svg"
+							class="blob-background first-card">
+							<path fill="#272727" id="first-start"
+								d="M33.4,-52.7C43.3,-52.1,51.3,-43.2,54.1,-33C56.8,-22.9,54.2,-11.4,50.5,-2.2C46.7,7.1,41.8,14.2,41.4,28.4C41,42.6,45.1,63.9,39,68.7C32.8,73.5,16.4,61.8,0,61.8C-16.4,61.8,-32.8,73.5,-43.1,71.1C-53.5,68.8,-57.7,52.3,-60,38.1C-62.3,23.9,-62.6,11.9,-66.6,-2.3C-70.5,-16.5,-78.1,-33,-73,-42.3C-67.8,-51.5,-49.9,-53.5,-35.7,-51.6C-21.4,-49.6,-10.7,-43.7,0.5,-44.6C11.7,-45.5,23.5,-53.3,33.4,-52.7Z"
+								transform="translate(80 85)" />
+							<path fill="#242424" id="first-mid" style="display: none;"
+								d="M26.7,-44.8C40.4,-38.4,61.1,-42.8,67.9,-37.2C74.7,-31.5,67.5,-15.8,63.9,-2.1C60.3,11.6,60.3,23.2,55.1,31.6C49.9,40,39.5,45.2,29.4,50.9C19.4,56.6,9.7,62.7,-1.1,64.6C-11.8,66.4,-23.6,63.9,-38,60.7C-52.4,57.6,-69.3,53.7,-71.2,43.4C-73,33.2,-59.8,16.6,-55.4,2.5C-51,-11.5,-55.5,-23.1,-53.4,-33C-51.4,-42.9,-42.9,-51.3,-32.9,-59.8C-22.9,-68.3,-11.5,-77,-2.5,-72.7C6.5,-68.4,13.1,-51.2,26.7,-44.8Z"
+								transform="translate(80 85)" />
+
+							<path fill="#242424" id="first-end" style="display: none;"
+								d="M35.7,-64.9C45.5,-56.3,52.1,-45.1,61,-33.8C69.9,-22.6,81.1,-11.3,82.2,0.6C83.3,12.5,74.3,25.1,65.4,36.5C56.6,47.9,48.1,58.2,37.2,65.8C26.4,73.5,13.2,78.5,-0.6,79.6C-14.5,80.7,-28.9,78,-42.6,71.9C-56.3,65.9,-69.3,56.7,-73,44.2C-76.6,31.6,-71.1,15.8,-71.7,-0.4C-72.3,-16.5,-79.1,-33.1,-74.9,-44.8C-70.8,-56.4,-55.6,-63.3,-41.3,-69.3C-27,-75.3,-13.5,-80.4,-0.3,-80C13,-79.5,26,-73.5,35.7,-64.9Z"
+								transform="translate(80 85)" />
+						</svg>
+					</li>
+					<li class="card-links for-line1">
+						<span class="card-link for-line1">See code on <a href=""><i class="fa-brands fa-github"></i>
+								Github</a></span>
+						<svg width="10" height="136" viewBox="0 0 6 136" fill="none" xmlns="http://www.w3.org/2000/svg"
+							class="card-link-line for-link1">
+							<path d="M3 0V136" stroke="#F0D19F" stroke-width="10" />
+						</svg>
+					</li>
+					<li class="card line2">
+						<div class="card-content of-line2">
+							<div class="mask">
+								<h3 class="card-title">Hit Radio Bot</h3>
+							</div>
+							<p class="card-desc">A Moroccan Discord bot built to stream HITRADIO stations 24/7. I
+								founded it
+								in 2020.📻🤖</p>
+							<div class="mask">
+								<h4 class="card-tech"><i class="fa-solid fa-code icon"></i> Technologies</h4>
+							</div>
+							<ul>
+								<li class="tech-list">Node.js (Discord.js)</li>
+							</ul>
+						</div>
+						<svg width="350" viewBox="0 0 130 165" xmlns="http://www.w3.org/2000/svg"
+							class="blob-background second-card" preserveAspectRatio="xMidYMid slice">
+							<path fill="#242424" id="second-start"
+								d="M32.1,-53.8C35.8,-53.5,29,-33.2,28.6,-20.9C28.2,-8.6,34.1,-4.3,39.9,3.3C45.7,11,51.4,21.9,47.8,27.3C44.2,32.7,31.4,32.4,21.9,29.4C12.4,26.3,6.2,20.5,-0.5,21.4C-7.2,22.3,-14.4,29.8,-22.6,32.1C-30.8,34.4,-40.1,31.4,-45.9,25.2C-51.7,19,-54.1,9.5,-56.6,-1.4C-59,-12.3,-61.5,-24.6,-58.1,-35C-54.6,-45.3,-45.2,-53.6,-34.5,-49.8C-23.8,-46,-11.9,-30.1,1.2,-32.1C14.2,-34.1,28.4,-54,32.1,-53.8Z"
+								transform="translate(70 75)" />
+							<path fill="#242424" id="second-mid" style="display: none;"
+								d="M38.4,-68.6C50.5,-59.5,61.5,-50.7,69.8,-39.3C78,-27.9,83.3,-14,79.4,-2.3C75.4,9.4,62,18.7,53.9,30.4C45.9,42,43.1,56,35,65.3C26.9,74.6,13.5,79.3,-0.4,80C-14.3,80.8,-28.6,77.6,-42.3,71.5C-56.1,65.4,-69.2,56.5,-74,44.1C-78.7,31.7,-75.1,15.8,-73.7,0.8C-72.3,-14.2,-73.1,-28.4,-65.9,-36.6C-58.7,-44.7,-43.5,-46.8,-31.1,-55.9C-18.8,-64.9,-9.4,-80.9,1.9,-84.1C13.1,-87.3,26.3,-77.8,38.4,-68.6Z"
+								transform="translate(70 75)" />
+
+							<path fill="#242424" id="second-end" style="display: none;"
+								d="M42.1,-71.3C51.6,-67.4,54.2,-50.1,55.4,-36C56.6,-21.9,56.5,-10.9,56,-0.3C55.6,10.4,54.8,20.8,52.2,32.5C49.5,44.1,44.9,57,35.9,67.5C26.9,78,13.4,86.1,-1.4,88.6C-16.3,91,-32.6,87.8,-45.8,79.8C-59,71.7,-69.1,58.7,-69.9,44.6C-70.7,30.5,-62.2,15.2,-60.4,1C-58.6,-13.1,-63.4,-26.3,-61.4,-38.4C-59.5,-50.4,-50.7,-61.5,-39.3,-64.2C-27.9,-67,-14,-61.6,1.2,-63.6C16.3,-65.6,32.6,-75.2,42.1,-71.3Z"
+								transform="translate(70 75)" />
+						</svg>
+					</li>
+					<li class="card-links for-line2">
+						<span class="card-link for-line2"><a href=""><i class="fa-brands fa-discord"></i> Add to your
+								server</a> or
+							join <a href=""> support server</a></span>
+						<svg width="6" height="136" viewBox="0 0 6 136" fill="none" xmlns="http://www.w3.org/2000/svg"
+							class="card-link-line for-link2">
+							<path d="M 3 136 L 3 0" stroke="#F0D19F" stroke-width="6" />
+						</svg>
 					</li>
 				</ul>
-				<div class="mask">
-					<h4 class="tech-stack">Tech Stack</h4>
+				<svg width="282" height="164" viewBox="0 0 282 164" fill="none" xmlns="http://www.w3.org/2000/svg"
+					class="svg-projects-line desktop">
+					<path d="M1 3.99994C180 -12.5 130.5 194.5 281 156" stroke="#F0D19F" stroke-width="5" />
+				</svg>
+
+				<svg width="49" height="250" viewBox="0 0 49 290" fill="none" xmlns="http://www.w3.org/2000/svg"
+					class="svg-projects-line mobile">
+					<path d="M46 2C-16.004 151.607 -6.46486 208.389 46 288" stroke="#F0D19F" stroke-width="6" />
+				</svg>
+
+
+				<div class="scroll-down of-projects">
+					<p>Scroll Down To <span class="highlighted-name">Connect</span></p>
+					<div class="mask">
+						<div class="mouse">
+							<div class="wheel"></div>
+						</div>
+					</div>
 				</div>
-				<ul class="tech-list-stack">
-					<!-- <svg class="border" viewBox="0 0 300 200" preserveAspectRatio="none" overflow="visible">
+			</section>
+			<section id="connect" class="sec connect">
+				<div class="mask">
+					<h2 class="connect-title">Let's Connect</h2>
+				</div>
+				<div class="connect-card">
+					<div class="mask">
+						<p class="connect-text">I'm always open to discussing new projects, creative ideas, or
+							opportunities
+							to
+							be
+							part of your visions. Feel free to reach out to me through any of the platforms below.
+							Whether
+							you
+							have
+							a
+							question, a collaboration proposal, or just want to say hi, I'm here to connect and explore
+							how
+							we
+							can
+							work together to create something amazing.</p>
+					</div>
+					<ul class="contact-links">
+						<li>
+							<a class="btn email" href="mailto:ghali.belmkaddam@gmail.com"><span class="btn-label">Email
+									Me
+									<i class="fa-solid fa-envelope"></i></span></a>
+						</li>
+						<span class="or">Or</span>
+						<div class="other-opt">
+							<li class="contact linkdin"><a
+									href="https://www.linkedin.com/in/ghali-belmkaddam-7a4479379/" target="_blank"><span
+										class="label-contact">Linkedin</span> <svg width="1em" height="1em"
+										viewBox="0 0 134 134" fill="none" xmlns="http://www.w3.org/2000/svg"
+										class="contact-icon for-connect">
+										<path class="external-link"
+											d="M83.75 0C79.1176 0 75.375 3.74258 75.375 8.375C75.375 13.0074 79.1176 16.75 83.75 16.75H105.394L52.684 69.4602C49.4125 72.7316 49.4125 78.0445 52.684 81.316C55.9555 84.5875 61.2684 84.5875 64.5398 81.316L117.25 28.6059V50.25C117.25 54.8824 120.993 58.625 125.625 58.625C130.257 58.625 134 54.8824 134 50.25V8.375C134 3.74258 130.257 0 125.625 0H83.75ZM20.9375 25.125C9.36953 25.125 0 34.4945 0 46.0625V113.062C0 124.63 9.36953 134 20.9375 134H87.9375C99.5055 134 108.875 124.63 108.875 113.062V92.125C108.875 87.4926 105.132 83.75 100.5 83.75C95.8676 83.75 92.125 87.4926 92.125 92.125V113.062C92.125 115.366 90.2406 117.25 87.9375 117.25H20.9375C18.6344 117.25 16.75 115.366 16.75 113.062V46.0625C16.75 43.7594 18.6344 41.875 20.9375 41.875H41.875C46.5074 41.875 50.25 38.1324 50.25 33.5C50.25 28.8676 46.5074 25.125 41.875 25.125H20.9375Z" />
+										<path class="linkdin logo"
+											d="M124.429 0H9.54152C4.27723 0 0 4.33705 0 9.66116V124.339C0 129.663 4.27723 134 9.54152 134H124.429C129.693 134 134 129.663 134 124.339V9.66116C134 4.33705 129.693 0 124.429 0ZM40.4991 114.857H20.6384V50.908H40.529V114.857H40.4991ZM30.5687 19.1429C36.9397 19.1429 42.0844 24.2875 42.0844 30.6585C42.0844 37.0295 36.9397 42.1741 30.5687 42.1741C24.1978 42.1741 19.0531 37.0295 19.0531 30.6585C19.0531 24.2875 24.1978 19.1429 30.5687 19.1429ZM114.947 114.857H95.0862V83.75C95.0862 76.3321 94.9366 66.7906 84.767 66.7906C74.4179 66.7906 72.8326 74.8665 72.8326 83.2116V114.857H52.9719V50.908H72.025V59.642H72.2942C74.9563 54.617 81.4469 49.3228 91.108 49.3228C111.208 49.3228 114.947 62.5732 114.947 79.8018V114.857Z" />
+									</svg>
+								</a>
+							</li>
+							<li class="contact github"><a href="https://github.com/ggg-codes" target="_blank"><span
+										class="label-contact">Discord</span>
+									<svg class="contact-icon for-connect" width="1em" height="1em" viewBox="0 0 146 142"
+										fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path class="external-link"
+											d="M90.7053 0C85.8087 0 81.8527 3.96602 81.8527 8.875C81.8527 13.784 85.8087 17.75 90.7053 17.75H113.584L57.8677 73.607C54.4096 77.0738 54.4096 82.7039 57.8677 86.1707C61.3257 89.6375 66.9416 89.6375 70.3996 86.1707L126.116 30.3137V53.25C126.116 58.159 130.072 62.125 134.968 62.125C139.865 62.125 143.821 58.159 143.821 53.25V8.875C143.821 3.96602 139.865 0 134.968 0H90.7053ZM24.3107 26.625C12.0831 26.625 2.1792 36.5539 2.1792 48.8125V119.812C2.1792 132.071 12.0831 142 24.3107 142H95.1316C107.359 142 117.263 132.071 117.263 119.812V97.625C117.263 92.716 113.307 88.75 108.411 88.75C103.514 88.75 99.5579 92.716 99.5579 97.625V119.812C99.5579 122.253 97.5661 124.25 95.1316 124.25H24.3107C21.8763 124.25 19.8844 122.253 19.8844 119.812V48.8125C19.8844 46.3719 21.8763 44.375 24.3107 44.375H46.4423C51.3389 44.375 55.2949 40.409 55.2949 35.5C55.2949 30.591 51.3389 26.625 46.4423 26.625H24.3107Z" />
+										<path class="discord logo"
+											d="M122.93 25.3594C122.883 25.2891 122.836 25.2188 122.742 25.1953C113.813 21.0938 104.367 18.1641 94.6877 16.5C94.594 16.4766 94.5002 16.5 94.4299 16.5234C94.3596 16.5469 94.2893 16.6172 94.2424 16.7109C92.9533 19.0313 91.7815 21.4453 90.7502 23.8828C80.2971 22.2891 69.6799 22.2891 59.2502 23.8828C58.1955 21.4219 57.0237 19.0313 55.7112 16.7109C55.6643 16.6406 55.594 16.5703 55.5237 16.5234C55.4533 16.4766 55.3596 16.4766 55.2658 16.4766C45.5862 18.1406 36.1408 21.0703 27.2112 25.1719C27.1408 25.1953 27.0705 25.2656 27.0237 25.3359C9.16429 52.0078 4.26585 78.0469 6.65647 103.734C6.65647 103.805 6.67991 103.852 6.70335 103.922C6.72678 103.992 6.77366 104.016 6.82053 104.063C17.2268 111.773 28.8518 117.656 41.2268 121.453C41.3205 121.477 41.4143 121.477 41.4846 121.453C41.5549 121.43 41.6487 121.359 41.6955 121.289C44.344 117.68 46.7112 113.836 48.7268 109.852C48.7502 109.805 48.7737 109.734 48.7737 109.664C48.7737 109.594 48.7737 109.547 48.7502 109.477C48.7268 109.406 48.7033 109.359 48.6565 109.336C48.6096 109.313 48.5627 109.266 48.4924 109.242C44.7893 107.813 41.1799 106.102 37.7346 104.109C37.6643 104.063 37.6174 104.016 37.5705 103.969C37.5237 103.922 37.5002 103.828 37.5002 103.758C37.5002 103.688 37.5002 103.617 37.5471 103.547C37.594 103.477 37.6174 103.43 37.6877 103.383C38.4143 102.844 39.1408 102.281 39.8205 101.719C39.8908 101.672 39.9612 101.625 40.0315 101.625C40.1018 101.625 40.1955 101.625 40.2658 101.648C62.8127 111.938 87.2346 111.938 109.524 101.648C109.594 101.625 109.688 101.602 109.758 101.602C109.828 101.602 109.922 101.648 109.969 101.695C110.649 102.258 111.375 102.844 112.102 103.383C112.149 103.43 112.196 103.477 112.242 103.547C112.289 103.617 112.289 103.688 112.289 103.758C112.289 103.828 112.266 103.898 112.219 103.969C112.172 104.039 112.125 104.086 112.078 104.109C108.633 106.125 105.047 107.836 101.321 109.219C101.274 109.242 101.203 109.266 101.156 109.313C101.11 109.359 101.086 109.406 101.063 109.477C101.039 109.547 101.039 109.594 101.039 109.664C101.039 109.734 101.063 109.781 101.086 109.852C103.149 113.836 105.492 117.656 108.117 121.289C108.164 121.359 108.258 121.43 108.328 121.453C108.399 121.477 108.516 121.477 108.586 121.453C120.985 117.656 132.633 111.773 143.063 104.063C143.11 104.016 143.156 103.969 143.18 103.922C143.203 103.875 143.227 103.805 143.227 103.734C146.11 74.0156 138.422 48.2109 122.86 25.3359L122.93 25.3594ZM52.1487 88.1016C45.3518 88.1016 39.7737 81.8672 39.7737 74.2266C39.7737 66.5859 45.258 60.3516 52.1487 60.3516C59.1096 60.3516 64.6408 66.6328 64.5237 74.2266C64.5237 81.8906 59.0393 88.1016 52.1487 88.1016ZM97.9455 88.1016C91.1487 88.1016 85.5705 81.8672 85.5705 74.2266C85.5705 66.5859 91.0549 60.3516 97.9455 60.3516C104.906 60.3516 110.438 66.6328 110.321 74.2266C110.321 81.8906 104.883 88.1016 97.9455 88.1016Z" />
+									</svg>
+
+								</a>
+							</li>
+						</div>
+					</ul>
+					<div class="mask">
+						<h4 class="tech-stack">Tech Stack</h4>
+					</div>
+					<ul class="tech-list-stack">
+						<!-- <svg class="border" viewBox="0 0 300 200" preserveAspectRatio="none" overflow="visible">
 						<rect x="0" y="0" width="100%" height="100%" fill="none""
 							stroke-linejoin=" round" stroke-linecap="round" />
 					</svg> -->
-					<li><span class="tech html"><i class="fa-brands fa-html5"></i> <span
-								class="label-tech">HTML</span></span></li>
-					<li><span class="tech css"><i class="fa-brands fa-css3"></i> <span
-								class="label-tech">CSS</span></span>
-					</li>
-					<li><span class="tech js"><i class="fa-brands fa-js"></i> <span
-								class="label-tech">JS(ES6+)</span></span>
-					</li>
-					<li><a class="tech node" href="https://nodejs.org/en" target="_blank"><i
-								class="fa-brands fa-node-js"></i> <span class="label-tech">Node.js</span></a></li>
-					<li><a class="tech express" href="https://expressjs.com/" target="_blank"><svg height="1em"
-								width="1em" viewBox="-.9 2.3 623.3 616.8" class="tech-icon"
-								xmlns="http://www.w3.org/2000/svg" fill="#f4f1eb">
-								<path
-									d="m293.5 3.1c-51 2.5-97.7 16.6-140.4 42.3-23.9 14.4-52.3 38.1-71.2 59.1-56.9 63.6-82.8 136.8-78.8 223 2.4 51.9 16.3 98.1 42.4 141.5 30.8 51.1 82.6 98.2 134.7 122.4 41 19.1 81.8 27.7 130.8 27.7 64.5 0 118.6-15.8 168.5-49.2 30.7-20.5 57.1-45.7 80.1-76.2 43.1-57.4 62.8-123.5 59.3-199.2-2-42.7-10.9-78.9-28.4-115.2-22.3-46.3-54.9-85.6-97.7-117.5-46.4-34.8-102.5-55.4-158.3-58.3-22.6-1.1-26.3-1.2-41-.4zm-73.8 190.8c16.5 4.1 30.9 12.7 43.5 25.9 18.6 19.5 28.9 44.4 32.7 78.4.6 5.4 1.1 12.4 1.1 15.8v6h-172.3l.6 11.2c1.8 33.1 18.7 55.5 48.4 64 10.3 3 32.3 3.2 42.3.5 19.3-5.2 35.8-20.3 38.6-35.3l.6-3.4h38l-.8 3.2c-5.7 26.4-22.4 47.7-47.1 60.2-17.3 8.7-44.4 12.5-68 9.6-24-3-42.6-11.6-58.4-27-16.3-16-25.4-34.2-31.2-62.5-2.9-14.6-3.2-46.5-.5-59.1 6.7-30.9 23.2-57.1 45.6-72.3 12.2-8.3 29-15 42.7-17.1 10-1.5 34.8-.5 44.2 1.9zm171.2 38.6c15.6 22.8 28.7 41.5 29.2 41.5.4 0 13.9-18.5 30-41.1s29.7-41.3 30.3-41.5 11.4-.3 23.9-.2l22.8.3-39.7 53c-21.8 29.1-40.3 54-41.1 55.2-1.4 2.1.7 5.2 43.9 65.5 25 34.8 45.8 63.9 46.2 64.5.6 1-4.6 1.3-24.6 1.3l-25.3-.1-32.9-48.9c-18-27-33.1-49-33.5-49s-15.6 22-33.7 49l-32.9 48.9-23.7.1c-13.1 0-23.8-.2-23.8-.4 0-.3 20-28.5 44.5-62.8s44.3-62.8 44.1-63.4c-.3-.7-18.7-26-41-56.4s-40.6-55.6-40.6-56.1 10.9-.9 24.8-.9h24.7z" />
-								<path
-									d="m181 225c-14.6 1.9-25.4 7.3-36.1 18-6.3 6.1-8.4 9.2-12.2 17-4.3 8.9-7.7 20.7-7.7 26.4v2.6h131v-3.3c0-5.9-3.8-18.5-8-26.6-9.7-18.7-27.3-31.1-48.4-34-8.4-1.2-10.4-1.2-18.6-.1z" />
-							</svg> <span class="label-tech">Express</span></a></li>
-					<li><a class="tech discordjs" href="https://discord.js.org/" target="_blank"><svg
-								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" height="1em" width="1em"
-								class="tech-icon">
-								<path fill="#b75cff"
-									d="M34.94 85.111c-.946.403-2.27.948-3.337 1.284-2.26.712-4.073 1-5.931 1.282 2.234 7.163 10.986 14.197 21.192 13.533 9.621 0 16.282-4.743 19.826-11.622-10.05-.142-24.69 4.042-31.75-4.477zm91.835 1.181c-3.514.419-6.024-.288-11.782 1.56-13.939 5.741-27.734.872-32.126-.08-1.442-.15-2.103-2.26-5.062 1.231l-1.443 1.701c6.812 6.703 16.15 10.55 25.82 10.55 13.02 0 21.823-6.288 24.748-14.829z" />
-								<path fill="#5c6cff"
-									d="M127.514 75.106c-7.656-5.317-9.187-1.473-13.026 2.677.355.908.547 1.94.547 3.14 0 5.604-4.504 9.231-12.524 9.231-6.703 0-13.624-3.296-18.787-8.131l-5.92 6.98c8.016.36 16.13 2.43 24.246 2.11 8.882-.352 20.615-3.164 24.725-4.82l.156.132a20.019 20.019 0 0 0 1.069-6.49c0-1.747-.17-3.35-.486-4.829zm-57.826.116c-4.338-3.309-8.496-2.182-12.483 2.493v.8c0 6.335-5.119 11.47-11.433 11.47a11.419 11.419 0 0 1-9.687-5.37s-.499.22-1.145.495c2.988 3.766 6.66 5.713 13.947 6.003 5.935.235 11.87-.805 17.805-1.525 1.983-3.846 2.996-8.358 2.996-13.089z" />
-								<path fill="#5cff9d"
-									d="M69.688 61.638c-4.052-3.565-8.177-4.284-12.483 1.156v14.921c4.175-.972 8.34-1.96 12.483-2.493zm48.311 1.084c-6.232-2.728-24.892.001-28.191 1.251a33.684 33.684 0 0 0 4.243 2.114l9.779 4.286c5.259 2.192 9.255 3.827 10.658 7.41 4.037-.586 7.518-1.39 9.835-1.923l3.19-.754c-1.223-5.711-4.689-9.545-9.514-12.384z" />
-								<path fill="#ffdb5c"
-									d="M79.565 47.88c.328 7.924 4.916 12.934 10.267 16.103 4.084.806 8.168 1.505 12.252 1.505 5.701 0 11.396-1.358 15.92-2.764a38.238 38.238 0 0 0-4.506-2.24l-9.668-4.066c-4.776-1.946-9.265-3.68-10.835-7.205-9.634-4.892-3.172-7.979-13.428-1.332Zm-9.877.96c-3.664-2.528-7.798-1.771-12.484 2.289l.001 11.673c4.16-.417 8.322-.971 12.483-1.164z" />
-								<path fill="#f79454"
-									d="M83.868 35.077c-2.75 3.305-4.32 7.392-4.32 11.89 0 .308.007.612.019.912 4.454-.044 8.935.45 13.428 1.335a7.034 7.034 0 0 1-.591-2.906c0-5.275 4.394-8.462 11.207-8.462 6.151 0 11.096 2.308 15.6 6.153l4.783-5.897c-13.977-4.32-26.47-7.037-40.124-3.026Zm-14.18 2.824c-5.156-4.528-9.114-1.188-12.484 5.13v8.098c4.162-.645 8.322-1.587 12.484-2.29z" />
-								<path fill="#ff5c5c"
-									d="M57.204 26.748v16.284c4.162-1.405 8.322-3.483 12.484-5.132V26.748Zm46.405 0c-8.459 0-15.501 3.235-19.74 8.326 6.033.023 12.106 1.242 18.18 1.967 8.689 1.038 17.348 1.06 21.943 1.06l1.812-2.233c-5.604-5.605-13.735-9.121-22.195-9.121z" />
-								<path fill="#5865f2"
-									d="M0 26.748V81.75h20.823c5.458 0 9.638-.865 13.52-2.823-.007-.135-.007-.273-.007-.41 0-6.335 5.12-11.468 11.436-11.468.187 0 .372.004.557.014 1.981-4.033 2.78-8.032 2.78-13.286 0-5.421-1.02-10.139-3.064-14.223-2.121-4.007-5.186-7.15-9.27-9.43-4.088-2.277-9.037-3.376-14.931-3.376Zm13.2 11.785h7.937c4.637 0 8.172 1.337 10.53 4.087 2.357 2.749 3.535 6.52 3.535 11.392 0 4.95-1.259 8.802-3.694 11.63-2.435 2.907-6.05 4.321-10.844 4.321h-7.463zm32.605 32.76a7.226 7.226 0 1 0 0 14.449 7.226 7.226 0 0 0 0-14.45z" />
-							</svg>
-							<span class="label-tech">Discord.js</span></a></li>
-					<li><a class="tech gsap" href="https://gsap.com/" target="_blank"><svg
-								xmlns="http://www.w3.org/2000/svg" width="2.5em" fill="none" viewBox="0 0 82 30">
-								<path fill="#0ae448"
-									d="M23.81 14.013v.013l-1.075 4.665c-.058.264-.322.458-.626.458H20.81a.218.218 0 0 0-.208.155c-1.198 4.064-2.82 6.858-4.962 8.535-1.822 1.428-4.068 2.093-7.069 2.093-2.696 0-4.514-.867-6.056-2.578C.478 25.09-.364 21.388.146 16.926 1.065 8.549 5.41.096 13.776.096c2.545-.023 4.543.762 5.933 2.33 1.47 1.657 2.216 4.154 2.22 7.421a.55.55 0 0 1-.549.536h-6.13a.42.42 0 0 1-.407-.41c-.05-2.259-.72-3.36-2.052-3.36-2.35 0-3.736 3.19-4.471 4.959-1.027 2.47-1.55 5.152-1.447 7.824.049 1.244.249 2.994 1.43 3.718 1.047.643 2.541.217 3.446-.495.904-.711 1.632-1.942 1.938-3.065.043-.156.046-.277.005-.332-.043-.055-.162-.068-.253-.068h-1.574a.572.572 0 0 1-.438-.202.42.42 0 0 1-.087-.362l1.076-4.674c.053-.24.27-.42.537-.453v-.011h10.33c.024 0 .049 0 .072.005.268.034.457.284.452.556h.002Z" />
-								<path fill="#0ae448"
-									d="M41.594 8.65a.548.548 0 0 1-.548.531H35.4c-.37 0-.679-.3-.679-.665 0-1.648-.57-2.45-1.736-2.45s-1.918.717-1.94 1.968c-.025 1.395.764 2.662 3.01 4.84 2.957 2.774 4.142 5.232 4.085 8.48C38.047 26.605 34.476 30 29.042 30c-2.775 0-4.895-.743-6.305-2.207-1.431-1.486-2.087-3.668-1.95-6.485a.548.548 0 0 1 .549-.53h5.84a.55.55 0 0 1 .422.209.48.48 0 0 1 .106.384c-.065 1.016.112 1.775.512 2.195.256.272.613.41 1.058.41 1.079 0 1.711-.763 1.735-2.09.02-1.148-.343-2.155-2.321-4.19-2.555-2.496-4.846-5.075-4.775-9.13.042-2.351.976-4.502 2.631-6.056C28.294.868 30.687 0 33.465 0c2.783.02 4.892.813 6.269 2.359 1.304 1.466 1.932 3.582 1.862 6.29h-.002Z" />
-								<path fill="#0ae448"
-									d="m59.096 29.012.037-27.932a.525.525 0 0 0-.529-.533h-8.738c-.294 0-.423.252-.507.42L36.707 28.842v.005l-.005.006c-.14.343.126.71.497.71h6.108c.33 0 .548-.1.656-.308l1.213-2.915c.149-.388.177-.424.601-.424h5.836c.406 0 .415.008.408.405l-.131 2.71a.525.525 0 0 0 .529.532h6.17a.522.522 0 0 0 .403-.182.458.458 0 0 0 .104-.369Zm-10.81-9.326c-.057 0-.102-.001-.138-.005a.146.146 0 0 1-.13-.183c.012-.041.029-.095.053-.163l4.377-10.827c.038-.107.086-.212.136-.314.071-.145.157-.155.184-.047.023.09-.502 11.118-.502 11.118-.041.413-.06.43-.467.464l-3.509-.041h-.008l.003-.002Z" />
-								<path fill="#0ae448"
-									d="M71.545.547h-4.639c-.245 0-.52.13-.585.422l-6.455 28.029a.423.423 0 0 0 .088.364.572.572 0 0 0 .437.202h5.798c.311 0 .525-.153.583-.418 0 0 .703-3.168.704-3.178.05-.247-.036-.439-.258-.555-.105-.054-.209-.108-.312-.163l-1.005-.522-1-.522-.387-.201a.186.186 0 0 1-.102-.17.199.199 0 0 1 .198-.194l3.178.014c.95.005 1.901-.062 2.836-.234 6.58-1.215 10.95-6.485 11.076-13.656.107-6.12-3.309-9.221-10.15-9.221l-.005.003Zm-1.579 16.68h-.124c-.278 0-.328-.03-.337-.04-.004-.007 1.833-8.073 1.834-8.084.047-.233.045-.367-.099-.446-.184-.102-2.866-1.516-2.866-1.516a.188.188 0 0 1-.101-.172.197.197 0 0 1 .197-.192h4.241c1.32.04 2.056 1.221 2.021 3.237-.061 3.492-1.721 7.09-4.766 7.214Z" />
-							</svg></a></li>
-				</ul>
-			</div>
-
-			<div class="scroll-down of-connect">
-				<p>Scroll Down To go to <span class="highlighted-name">Landing</span></p>
-				<div class="mouse">
-					<div class="wheel"></div>
+						<li><span class="tech html"><i class="fa-brands fa-html5"></i> <span
+									class="label-tech">HTML</span></span></li>
+						<li><span class="tech css"><i class="fa-brands fa-css3"></i> <span
+									class="label-tech">CSS</span></span>
+						</li>
+						<li><span class="tech js"><i class="fa-brands fa-js"></i> <span
+									class="label-tech">JS(ES6+)</span></span>
+						</li>
+						<li><a class="tech node" href="https://nodejs.org/en" target="_blank"><i
+									class="fa-brands fa-node-js"></i> <span class="label-tech">Node.js</span></a></li>
+						<li><a class="tech express" href="https://expressjs.com/" target="_blank"><svg height="1em"
+									width="1em" viewBox="-.9 2.3 623.3 616.8" class="tech-icon-express"
+									xmlns="http://www.w3.org/2000/svg" fill="#f4f1eb">
+									<path
+										d="m293.5 3.1c-51 2.5-97.7 16.6-140.4 42.3-23.9 14.4-52.3 38.1-71.2 59.1-56.9 63.6-82.8 136.8-78.8 223 2.4 51.9 16.3 98.1 42.4 141.5 30.8 51.1 82.6 98.2 134.7 122.4 41 19.1 81.8 27.7 130.8 27.7 64.5 0 118.6-15.8 168.5-49.2 30.7-20.5 57.1-45.7 80.1-76.2 43.1-57.4 62.8-123.5 59.3-199.2-2-42.7-10.9-78.9-28.4-115.2-22.3-46.3-54.9-85.6-97.7-117.5-46.4-34.8-102.5-55.4-158.3-58.3-22.6-1.1-26.3-1.2-41-.4zm-73.8 190.8c16.5 4.1 30.9 12.7 43.5 25.9 18.6 19.5 28.9 44.4 32.7 78.4.6 5.4 1.1 12.4 1.1 15.8v6h-172.3l.6 11.2c1.8 33.1 18.7 55.5 48.4 64 10.3 3 32.3 3.2 42.3.5 19.3-5.2 35.8-20.3 38.6-35.3l.6-3.4h38l-.8 3.2c-5.7 26.4-22.4 47.7-47.1 60.2-17.3 8.7-44.4 12.5-68 9.6-24-3-42.6-11.6-58.4-27-16.3-16-25.4-34.2-31.2-62.5-2.9-14.6-3.2-46.5-.5-59.1 6.7-30.9 23.2-57.1 45.6-72.3 12.2-8.3 29-15 42.7-17.1 10-1.5 34.8-.5 44.2 1.9zm171.2 38.6c15.6 22.8 28.7 41.5 29.2 41.5.4 0 13.9-18.5 30-41.1s29.7-41.3 30.3-41.5 11.4-.3 23.9-.2l22.8.3-39.7 53c-21.8 29.1-40.3 54-41.1 55.2-1.4 2.1.7 5.2 43.9 65.5 25 34.8 45.8 63.9 46.2 64.5.6 1-4.6 1.3-24.6 1.3l-25.3-.1-32.9-48.9c-18-27-33.1-49-33.5-49s-15.6 22-33.7 49l-32.9 48.9-23.7.1c-13.1 0-23.8-.2-23.8-.4 0-.3 20-28.5 44.5-62.8s44.3-62.8 44.1-63.4c-.3-.7-18.7-26-41-56.4s-40.6-55.6-40.6-56.1 10.9-.9 24.8-.9h24.7z" />
+									<path
+										d="m181 225c-14.6 1.9-25.4 7.3-36.1 18-6.3 6.1-8.4 9.2-12.2 17-4.3 8.9-7.7 20.7-7.7 26.4v2.6h131v-3.3c0-5.9-3.8-18.5-8-26.6-9.7-18.7-27.3-31.1-48.4-34-8.4-1.2-10.4-1.2-18.6-.1z" />
+								</svg> <span class="label-tech">Express</span></a></li>
+						<li><a class="tech discordjs" href="https://discord.js.org/" target="_blank"><svg
+									xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" height="1em" width="1em"
+									class="tech-icon">
+									<path fill="#b75cff"
+										d="M34.94 85.111c-.946.403-2.27.948-3.337 1.284-2.26.712-4.073 1-5.931 1.282 2.234 7.163 10.986 14.197 21.192 13.533 9.621 0 16.282-4.743 19.826-11.622-10.05-.142-24.69 4.042-31.75-4.477zm91.835 1.181c-3.514.419-6.024-.288-11.782 1.56-13.939 5.741-27.734.872-32.126-.08-1.442-.15-2.103-2.26-5.062 1.231l-1.443 1.701c6.812 6.703 16.15 10.55 25.82 10.55 13.02 0 21.823-6.288 24.748-14.829z" />
+									<path fill="#5c6cff"
+										d="M127.514 75.106c-7.656-5.317-9.187-1.473-13.026 2.677.355.908.547 1.94.547 3.14 0 5.604-4.504 9.231-12.524 9.231-6.703 0-13.624-3.296-18.787-8.131l-5.92 6.98c8.016.36 16.13 2.43 24.246 2.11 8.882-.352 20.615-3.164 24.725-4.82l.156.132a20.019 20.019 0 0 0 1.069-6.49c0-1.747-.17-3.35-.486-4.829zm-57.826.116c-4.338-3.309-8.496-2.182-12.483 2.493v.8c0 6.335-5.119 11.47-11.433 11.47a11.419 11.419 0 0 1-9.687-5.37s-.499.22-1.145.495c2.988 3.766 6.66 5.713 13.947 6.003 5.935.235 11.87-.805 17.805-1.525 1.983-3.846 2.996-8.358 2.996-13.089z" />
+									<path fill="#5cff9d"
+										d="M69.688 61.638c-4.052-3.565-8.177-4.284-12.483 1.156v14.921c4.175-.972 8.34-1.96 12.483-2.493zm48.311 1.084c-6.232-2.728-24.892.001-28.191 1.251a33.684 33.684 0 0 0 4.243 2.114l9.779 4.286c5.259 2.192 9.255 3.827 10.658 7.41 4.037-.586 7.518-1.39 9.835-1.923l3.19-.754c-1.223-5.711-4.689-9.545-9.514-12.384z" />
+									<path fill="#ffdb5c"
+										d="M79.565 47.88c.328 7.924 4.916 12.934 10.267 16.103 4.084.806 8.168 1.505 12.252 1.505 5.701 0 11.396-1.358 15.92-2.764a38.238 38.238 0 0 0-4.506-2.24l-9.668-4.066c-4.776-1.946-9.265-3.68-10.835-7.205-9.634-4.892-3.172-7.979-13.428-1.332Zm-9.877.96c-3.664-2.528-7.798-1.771-12.484 2.289l.001 11.673c4.16-.417 8.322-.971 12.483-1.164z" />
+									<path fill="#f79454"
+										d="M83.868 35.077c-2.75 3.305-4.32 7.392-4.32 11.89 0 .308.007.612.019.912 4.454-.044 8.935.45 13.428 1.335a7.034 7.034 0 0 1-.591-2.906c0-5.275 4.394-8.462 11.207-8.462 6.151 0 11.096 2.308 15.6 6.153l4.783-5.897c-13.977-4.32-26.47-7.037-40.124-3.026Zm-14.18 2.824c-5.156-4.528-9.114-1.188-12.484 5.13v8.098c4.162-.645 8.322-1.587 12.484-2.29z" />
+									<path fill="#ff5c5c"
+										d="M57.204 26.748v16.284c4.162-1.405 8.322-3.483 12.484-5.132V26.748Zm46.405 0c-8.459 0-15.501 3.235-19.74 8.326 6.033.023 12.106 1.242 18.18 1.967 8.689 1.038 17.348 1.06 21.943 1.06l1.812-2.233c-5.604-5.605-13.735-9.121-22.195-9.121z" />
+									<path fill="#5865f2"
+										d="M0 26.748V81.75h20.823c5.458 0 9.638-.865 13.52-2.823-.007-.135-.007-.273-.007-.41 0-6.335 5.12-11.468 11.436-11.468.187 0 .372.004.557.014 1.981-4.033 2.78-8.032 2.78-13.286 0-5.421-1.02-10.139-3.064-14.223-2.121-4.007-5.186-7.15-9.27-9.43-4.088-2.277-9.037-3.376-14.931-3.376Zm13.2 11.785h7.937c4.637 0 8.172 1.337 10.53 4.087 2.357 2.749 3.535 6.52 3.535 11.392 0 4.95-1.259 8.802-3.694 11.63-2.435 2.907-6.05 4.321-10.844 4.321h-7.463zm32.605 32.76a7.226 7.226 0 1 0 0 14.449 7.226 7.226 0 0 0 0-14.45z" />
+								</svg>
+								<span class="label-tech">Discord.js</span></a></li>
+						<li><a class="tech gsap" href="https://gsap.com/" target="_blank"><svg
+									xmlns="http://www.w3.org/2000/svg" width="2.5em" fill="none" viewBox="0 0 82 30"
+									class="tech-icon">
+									<path fill="#0ae448"
+										d="M23.81 14.013v.013l-1.075 4.665c-.058.264-.322.458-.626.458H20.81a.218.218 0 0 0-.208.155c-1.198 4.064-2.82 6.858-4.962 8.535-1.822 1.428-4.068 2.093-7.069 2.093-2.696 0-4.514-.867-6.056-2.578C.478 25.09-.364 21.388.146 16.926 1.065 8.549 5.41.096 13.776.096c2.545-.023 4.543.762 5.933 2.33 1.47 1.657 2.216 4.154 2.22 7.421a.55.55 0 0 1-.549.536h-6.13a.42.42 0 0 1-.407-.41c-.05-2.259-.72-3.36-2.052-3.36-2.35 0-3.736 3.19-4.471 4.959-1.027 2.47-1.55 5.152-1.447 7.824.049 1.244.249 2.994 1.43 3.718 1.047.643 2.541.217 3.446-.495.904-.711 1.632-1.942 1.938-3.065.043-.156.046-.277.005-.332-.043-.055-.162-.068-.253-.068h-1.574a.572.572 0 0 1-.438-.202.42.42 0 0 1-.087-.362l1.076-4.674c.053-.24.27-.42.537-.453v-.011h10.33c.024 0 .049 0 .072.005.268.034.457.284.452.556h.002Z" />
+									<path fill="#0ae448"
+										d="M41.594 8.65a.548.548 0 0 1-.548.531H35.4c-.37 0-.679-.3-.679-.665 0-1.648-.57-2.45-1.736-2.45s-1.918.717-1.94 1.968c-.025 1.395.764 2.662 3.01 4.84 2.957 2.774 4.142 5.232 4.085 8.48C38.047 26.605 34.476 30 29.042 30c-2.775 0-4.895-.743-6.305-2.207-1.431-1.486-2.087-3.668-1.95-6.485a.548.548 0 0 1 .549-.53h5.84a.55.55 0 0 1 .422.209.48.48 0 0 1 .106.384c-.065 1.016.112 1.775.512 2.195.256.272.613.41 1.058.41 1.079 0 1.711-.763 1.735-2.09.02-1.148-.343-2.155-2.321-4.19-2.555-2.496-4.846-5.075-4.775-9.13.042-2.351.976-4.502 2.631-6.056C28.294.868 30.687 0 33.465 0c2.783.02 4.892.813 6.269 2.359 1.304 1.466 1.932 3.582 1.862 6.29h-.002Z" />
+									<path fill="#0ae448"
+										d="m59.096 29.012.037-27.932a.525.525 0 0 0-.529-.533h-8.738c-.294 0-.423.252-.507.42L36.707 28.842v.005l-.005.006c-.14.343.126.71.497.71h6.108c.33 0 .548-.1.656-.308l1.213-2.915c.149-.388.177-.424.601-.424h5.836c.406 0 .415.008.408.405l-.131 2.71a.525.525 0 0 0 .529.532h6.17a.522.522 0 0 0 .403-.182.458.458 0 0 0 .104-.369Zm-10.81-9.326c-.057 0-.102-.001-.138-.005a.146.146 0 0 1-.13-.183c.012-.041.029-.095.053-.163l4.377-10.827c.038-.107.086-.212.136-.314.071-.145.157-.155.184-.047.023.09-.502 11.118-.502 11.118-.041.413-.06.43-.467.464l-3.509-.041h-.008l.003-.002Z" />
+									<path fill="#0ae448"
+										d="M71.545.547h-4.639c-.245 0-.52.13-.585.422l-6.455 28.029a.423.423 0 0 0 .088.364.572.572 0 0 0 .437.202h5.798c.311 0 .525-.153.583-.418 0 0 .703-3.168.704-3.178.05-.247-.036-.439-.258-.555-.105-.054-.209-.108-.312-.163l-1.005-.522-1-.522-.387-.201a.186.186 0 0 1-.102-.17.199.199 0 0 1 .198-.194l3.178.014c.95.005 1.901-.062 2.836-.234 6.58-1.215 10.95-6.485 11.076-13.656.107-6.12-3.309-9.221-10.15-9.221l-.005.003Zm-1.579 16.68h-.124c-.278 0-.328-.03-.337-.04-.004-.007 1.833-8.073 1.834-8.084.047-.233.045-.367-.099-.446-.184-.102-2.866-1.516-2.866-1.516a.188.188 0 0 1-.101-.172.197.197 0 0 1 .197-.192h4.241c1.32.04 2.056 1.221 2.021 3.237-.061 3.492-1.721 7.09-4.766 7.214Z" />
+								</svg></a></li>
+					</ul>
 				</div>
-			</div>
-		</section>
 
-	</main>
+				<div class="scroll-down of-connect">
+					<p>Scroll Down To go to <span class="highlighted-name">Landing</span></p>
+					<div class="mask">
+						<div class="mouse">
+							<div class="wheel"></div>
+						</div>
+					</div>
+				</div>
+			</section>
 
+		</main>
+
+	</div>
 	<script src="https://unpkg.com/typeit/dist/index.umd.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
@@ -354,7 +412,71 @@
 	<script src="https://unpkg.com/lucide@latest"></script>
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MorphSVGPlugin.min.js"></script>
+	<!-- <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script> -->
 	<!-- <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/findShapeIndex.js"></script> -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm"></script> -->
+	<script type="module">
+		import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
+
+		let barIcon = new DotLottie({
+			// autoplay: true,
+			// loop: true,
+			canvas: document.getElementById("menu-bars"),
+			src: "https://lottie.host/d2c2c11a-7087-4394-9366-a3f4b974f3af/aR5okO3Vpy.lottie",
+		});
+
+		let isOpen = false;
+
+		const navBar = document.querySelector('.sidebar')
+
+		if (window.matchMedia("(max-width: 768px)").matches) {
+			gsap.set('.sidebar', { height: '80px' });
+			gsap.set('.navbar-item', { y: 100 });
+			gsap.set('.footer', { autoAlpha: 0 })
+			document.querySelector('.nav-toggle-btn').addEventListener('click', () => {
+				if (!isOpen) {
+					barIcon.setSegment(0, 70);
+					barIcon.play();
+					navBar.classList.add('open')
+					document.body.classList.add('mask')
+					const tl = gsap
+						.timeline({ defaults: { ease: 'power2.out' } })
+						.to(".sidebar", {
+							height: "100vh",
+							duration: 0.5,
+						})
+						.to(".navbar-item", {
+							y: 0,
+							duration: 0.3,
+						})
+						.to('.footer', {
+							autoAlpha: 1,
+							duration: .3,
+						})
+				} else {
+					barIcon.setSegment(70, 140);
+					barIcon.play();
+					navBar.classList.remove('open')
+					document.body.classList.remove('mask')
+					const tl = gsap
+						.timeline({ defaults: { ease: 'power2.out' } })
+						.to(".navbar-item", {
+							y: 100,
+							duration: 0.5,
+						})
+						.to('.footer', {
+							autoAlpha: 0,
+							duration: .2
+						})
+						.to(".sidebar", {
+							height: "80px",
+							duration: 0.5,
+						}, '+=0.2')
+				}
+				isOpen = !isOpen;
+			})
+		}
+	</script>
 	<script src="script.js"></script>
 </body>
 

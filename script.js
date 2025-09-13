@@ -13,17 +13,55 @@ gsap.registerPlugin(
   MorphSVGPlugin
 );
 
-// const hover = () => {
-//   gsap.to(".navbar-item", {
-//     color: 'var(--accent-color)'
-//   })
-// }
+const dot = document.querySelector(".cursor-dot");
 
-// const sidebarHover = Observer.create({
-//       target: ".navbar-item", // can be any element (selector text is fine)
-//       type: "wheel,touch,scroll,pointer", // comma-delimited list of what to listen for
-//       onHover: hover()
-//     });
+window.addEventListener("mousemove", (e) => {
+  gsap.to(dot, {
+    x: e.clientX,
+    y: e.clientY,
+    opacity: 1,
+    duration: 0.5,
+    ease: "power2.out",
+  });
+});
+
+document.addEventListener("mouseleave", () => {
+  console.log("Mouse left the window");
+  gsap.to(dot, {
+    opacity: 0,
+    duration: 0.2,
+    onComplete: () => (dot.style.display = "none"),
+  });
+});
+
+document.addEventListener("mouseenter", () => {
+  gsap.to(dot, {
+    opacity: 1,
+    duration: 0.5,
+    onStart: () => (dot.style.display = "block"),
+  });
+});
+
+const links = document.querySelectorAll("a, button");
+
+links.forEach((link) => {
+  link.addEventListener("mouseenter", () => {
+    gsap.to(dot, {
+      width: 75,
+      height: 75,
+      backgroundColor: "rgba(240, 209, 159, 0.5)",
+      border: "2px solid rgba(240, 209, 159, 1)",
+    });
+  });
+  link.addEventListener("mouseleave", () => {
+    gsap.to(dot, {
+      width: "12px",
+      height: "12px",
+      backgroundColor: "var(--accent-color)",
+      border: "none",
+    });
+  });
+});
 
 const hero = document.querySelector(".hero-link");
 
@@ -36,6 +74,8 @@ const active = (section) => {
   //   `;
 
   let sectionObeserver = section ? section : hero;
+  console.log("🚀 ~ active ~ sectionObeserver:", sectionObeserver);
+
   const lastSection = document.querySelector(".active");
   const navItems = sectionObeserver.querySelector("a");
   const svg = navItems.querySelector("svg");
@@ -134,13 +174,37 @@ const active = (section) => {
   });
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", (event) => {
   active();
   gsap.from(".scroll-down.of-hero", {
     delay: 1.5,
     duration: 1,
     opacity: 0,
   });
+
+  gsap.set(dot, { opacity: 0 });
+
+  function setInitialPosition(e) {
+    gsap.set(dot, { x: e.clientX, y: e.clientY });
+    window.removeEventListener("mousemove", setInitialPosition);
+  }
+
+  window.addEventListener("mousemove", setInitialPosition);
+
+  // if (window.matchMedia("(max-width: 768px)").matches) {
+  //   document.querySelector(".nav-toggle-btn").addEventListener("click", () => {
+  //     const tl = gsap
+  //       .timeline()
+  //       .to(".sidebar", {
+  //         height: "100vh",
+  //         duration: 0.3,
+  //       })
+  //       .to(".nav-links", {
+  //         y: 0,
+  //         duration: 0.3,
+  //       });
+  //   });
+  // }
 });
 
 const it = "Information Technology";
@@ -370,14 +434,15 @@ cardsToObserve.forEach((target) => {
   });
 });
 
-const scrollAnimation = () => {
+const scrollAnimation = (isMobile) => {
   const sections = document.querySelectorAll(".sec");
   let currentIndex = 0;
   let isAnimating = false;
   let aboutMeAnimated = false;
   let projectsAnimated = false;
+  let connectAnimated = false;
 
-  const goToSection = (index, direction) => {
+  const goToSection = (index, currentSection) => {
     index = gsap.utils.wrap(0, sections.length, index);
     let current = sections[currentIndex];
     let next = sections[index];
@@ -408,411 +473,515 @@ const scrollAnimation = () => {
     current.classList.remove("active-sec");
     next.classList.add("active-sec");
 
-    const sectionAnimation = (section) => {
-      if (section.classList.contains("about-me")) {
-        const sectionLink = document.querySelector(".about-me-link");
-        active(sectionLink);
-        if (aboutMeAnimated) return;
-        aboutMeAnimated = true;
-        const aboutMeTitle = section.querySelector(".about-me-header");
-        const aboutMeImg = section.querySelector(".about-me-img");
-        const sectionText = section.querySelectorAll(".about-me-text p");
-        const socialTitle = section.querySelector(".socials h3");
-        const socials = section.querySelectorAll(".socials a");
-        const scrollDown = document.querySelector(".scroll-down.of-about");
-        const scrollDownText = scrollDown.querySelector("p");
-        const mouse = scrollDown.querySelector(".mouse");
-
-        gsap.set(aboutMeTitle, { y: 500 });
-        gsap.set(aboutMeImg, { scale: 0.9, autoAlpha: 0, borderRadius: "50%" });
-        gsap.set(sectionText, { y: 100, autoAlpha: 0 });
-        gsap.set(socialTitle, { y: 50, opacity: 0 });
-        gsap.set(socials, { x: 50, opacity: 0 });
-        gsap.set(scrollDownText, { y: 30, opacity: 0 });
-        gsap.set(mouse, { x: -50, opacity: 0 });
-
-        const tl = gsap.timeline();
-        tl.to(aboutMeTitle, {
-          y: 0,
-          opacity: 1,
-          duration: 0.5,
-          ease: "power2.out",
-        })
-          .to(
-            sectionText,
-            {
-              duration: 1,
-              ease: "back.out(1.7)",
-              y: 0,
-              autoAlpha: 1,
-              stagger: {
-                amount: 0.5,
-              },
-            },
-            ">+0.5"
-          )
-          .to(
-            aboutMeImg,
-            {
-              scale: 1,
-              autoAlpha: 1,
-              duration: 0.7,
-              borderRadius: "25%",
-              ease: "expoScale(1,2,power2.inOut)",
-              stagger: 0.1,
-            },
-            "<0.5"
-          )
-          .to(socialTitle, {
-            duration: 1,
-            y: 0,
-            opacity: 1,
-            ease: "power2.out",
-          })
-          .to(socials, {
-            duration: 1,
-            x: 0,
-            opacity: 1,
-            ease: "back.out(1.7)",
-            stagger: {
-              amount: 0.5,
-            },
-          })
-          .to(
-            scrollDownText,
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1,
-              ease: "back.out(1.7)",
-            },
-            "+=1"
-          )
-          .to(mouse, {
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power1.out",
-          });
-      } else if (section.classList.contains("projects")) {
-        const sectionLink = document.querySelector(".projects-link");
-        active(sectionLink);
-        if (projectsAnimated) return;
-        projectsAnimated = true;
-        const projectTitle = section.querySelector(".title");
-
-        const line1 = section.querySelector(".of-line1");
-        const line1Content = line1.querySelectorAll("h3, p, h4, .tech-list");
-        const line1BlobStart = section.querySelector(
-          ".first-card #first-start"
-        );
-        const line1BlobMid = section.querySelector(".first-card #first-mid");
-        const line1CardLink = section.querySelector(".card-link.for-line1");
-        const line1CardLinkLine = section.querySelector(
-          ".card-link-line.for-link1 path"
-        );
-
-        const line = section.querySelector(".svg-projects-line path");
-
-        const line2 = section.querySelector(".of-line2");
-        const line2Content = line2.querySelectorAll("h3, p, h4, .tech-list");
-        const line2BlobStart = section.querySelector(
-          ".second-card #second-start"
-        );
-        const line2BlobMid = section.querySelector(".second-card #second-mid");
-        const line2CardLink = section.querySelector(".card-link.for-line2");
-        const line2CardLinkLine = section.querySelector(
-          ".card-link-line.for-link2 path"
-        );
-
-        const scrollDown = document.querySelector(".scroll-down.of-projects");
-        const scrollDownText = scrollDown.querySelector("p");
-        const mouse = scrollDown.querySelector(".mouse");
-
-        gsap.set(projectTitle, { y: 500 });
-
-        gsap.set(line1BlobStart, { scale: 0.8, autoAlpha: 0 });
-        gsap.set(line1Content, { y: 50, autoAlpha: 0 });
-        gsap.set(line1CardLinkLine, { drawSVG: 0 });
-        gsap.set(line1CardLink, { scale: 0, color: "transparent" });
-
-        gsap.set(line, { drawSVG: 0 });
-
-        gsap.set(line2BlobStart, { scale: 0.8, autoAlpha: 0 });
-        gsap.set(line2Content, { y: 50, autoAlpha: 0 });
-        gsap.set(line2CardLinkLine, { drawSVG: "0% 0%" });
-        gsap.set(line2CardLink, { scale: 0, color: "transparent" });
-
-        gsap.set(scrollDownText, { y: 30, opacity: 0 });
-        gsap.set(mouse, { x: -50, opacity: 0 });
-
-        /* a small comment: i just realized if i wanted to add a card it would hustle,
-        i need to make this code dynamic but not today i'm really tired and just want to finish this project*/
-        const tl = gsap.timeline();
-        tl.to(projectTitle, {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          // ease: "back.out(1.7)",
-          ease: "power2.out",
-        })
-          .to(
-            line1BlobStart,
-            {
-              // delay: 1,
-              scale: 1,
-              autoAlpha: 1,
-              duration: 0.8,
-              morphSVG: line1BlobMid,
-              // ease: "back.inOut(3)",
-            },
-            "<1"
-          )
-          .to(line1BlobStart, {
-            duration: 1.7,
-            morphSVG: {
-              shape: "#first-end",
-              shapeIndex: 1,
-            },
-            ease: "back.out(3)",
-          })
-          .to(
-            line1Content,
-            {
-              duration: 0.8,
-              y: 0,
-              autoAlpha: 1,
-              stagger: {
-                each: 0.5,
-              },
-              ease: "power2.out",
-            },
-            "-=0.5"
-          )
-          .to(line1CardLinkLine, {
-            drawSVG: true,
-            duration: 0.8,
-            ease: "power2.out",
-          })
-          .to(
-            line1CardLink,
-            {
-              scale: 1,
-              transformOrigin: "25% 0%",
-              duration: 0.5,
-              ease: "power1.out",
-            },
-            "-=0.5"
-          )
-          .to(
-            line1CardLink,
-            {
-              color: "var(--dominant-color)",
-              duration: 0.5,
-            },
-            "-=0.15"
-          )
-          .to(
-            line,
-            {
-              drawSVG: true,
-              duration: 0.8,
-              ease: "power2.out",
-            },
-            "-=2"
-          )
-          // line 2
-          .to(
-            line2BlobStart,
-            {
-              scale: 1,
-              autoAlpha: 1,
-              duration: 0.5,
-              morphSVG: line2BlobMid,
-              // ease: "back.inOut(3)",
-            },
-            "<0.5"
-          )
-          .to(line2BlobStart, {
-            duration: 1,
-            morphSVG: {
-              shape: "#second-end",
-              shapeIndex: 3,
-            },
-            // ease: "back.out(3)",
-          })
-          .to(
-            line2Content,
-            {
-              duration: 0.5,
-              y: 0,
-              autoAlpha: 1,
-              stagger: {
-                each: 0.5,
-              },
-            },
-            "-=0.5"
-          )
-          .to(
-            line2CardLinkLine,
-            {
-              drawSVG: "100% 0%",
-              transformOrigin: "bottom",
-              duration: 0.8,
-              ease: "power2.out",
-            },
-            "-=0.5"
-          )
-          .to(
-            line2CardLink,
-            {
-              scale: 1,
-              transformOrigin: "52.95% 100%",
-              duration: 0.5,
-              ease: "power1.out",
-            },
-            "-=0.7"
-          )
-          .to(
-            line2CardLink,
-            {
-              color: "var(--dominant-color)",
-              duration: 0.5,
-            },
-            "-=0.15"
-          )
-          .to(
-            scrollDownText,
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1,
-              ease: "back.out(1.7)",
-            },
-            "+=1"
-          )
-          .to(mouse, {
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power1.out",
-          });
-
-        projectTitle.addEventListener("mouseenter", () => {
-          gsap.to(projectTitle, {
-            scale: 1.075,
-            duration: 0.4,
-            ease: "power1.inOut",
-          });
-        });
-
-        projectTitle.addEventListener("mouseleave", () => {
-          gsap.to(projectTitle, {
-            scale: 1,
-            duration: 0.4,
-            ease: "power1.inOut",
-          });
-        });
-      } else if (section.classList.contains("connect")) {
-        const sectionLink = document.querySelector(".connect-link");
-        active(sectionLink);
-
-        const connectTitle = section.querySelector(".connect-title");
-        const connectText = section.querySelector(".connect-text");
-
-        const connectLinks = section.querySelector(".contact-links");
-        const btn = connectLinks.querySelector(".btn");
-        const or = connectLinks.querySelector("span.or");
-        const contactLinks = connectLinks.querySelectorAll(".contact");
-
-        const techStackTitle = section.querySelector(".tech-stack");
-        const techStackList = section.querySelectorAll(".tech-list-stack li");
-
-        const scrollDown = document.querySelector(".scroll-down.of-connect");
-        const scrollDownText = scrollDown.querySelector("p");
-        const mouse = scrollDown.querySelector(".mouse");
-
-        gsap.set(connectTitle, { y: 500 });
-        gsap.set(connectText, { y: 100, autoAlpha: 0 });
-
-        gsap.set(btn, { y: 50, autoAlpha: 0 });
-        gsap.set(or, { autoAlpha: 0 });
-        gsap.set(contactLinks, { y: 50, autoAlpha: 0 });
-
-        gsap.set(techStackTitle, { y: 50, autoAlpha: 0 });
-        gsap.set(techStackList, { autoAlpha: 0 });
-
-        const tl = gsap
-          .timeline()
-          .to(connectTitle, {
-            y: 0,
-            duration: 0.5,
-            ease: "power1.out",
-          })
-          .to(connectText, {
-            y: 0,
-            autoAlpha: 1,
-            duration: 0.5,
-            ease: "power1.out",
-          })
-          .to(btn, {
-            y: 0,
-            autoAlpha: 1,
-            duration: 0.5,
-            ease: "power1.out",
-          })
-          .to(or, {
-            autoAlpha: 1,
-            duration: 0.5,
-            ease: "power1.out",
-          })
-          .to(contactLinks, {
-            y: 0,
-            autoAlpha: 1,
-            duration: 0.5,
-            stagger: {
-              amount: 0.3,
-            },
-            ease: "power1.out",
-          })
-          .to(techStackTitle, {
-            y: 0,
-            autoAlpha: 1,
-            duration: 0.5,
-            ease: "power1.out",
-          })
-          .to(techStackList, {
-            y: 0,
-            autoAlpha: 1,
-            duration: 0.5,
-            stagger: {
-              each: 0.3,
-            },
-            ease: "power1.out",
-          });
-      } else {
-        active();
-      }
-    };
-
     currentIndex = index;
   };
 
-  Observer.create({
-    // type: "wheel,touch,pointer",
-    onDown: () => !isAnimating && goToSection(currentIndex - 1, -1),
-    onUp: () => !isAnimating && goToSection(currentIndex + 1, 1),
-    wheelSpeed: -1,
-    tolerance: 10,
-    preventDefault: true,
-  });
+  const sectionAnimation = (section) => {
+    if (section.classList.contains("about-me")) {
+      const sectionLink = document.querySelector(".about-me-link");
+      active(sectionLink);
+      if (aboutMeAnimated) return;
+      aboutMeAnimated = true;
+      const aboutMeTitle = section.querySelector(".about-me-header");
+      const aboutMeImg = section.querySelector(".about-me-img");
+      const sectionText = section.querySelectorAll(".about-me-text p");
+      const socialTitle = section.querySelector(".socials h3");
+      const socials = section.querySelectorAll(".socials a");
+      const scrollDown = document.querySelector(".scroll-down.of-about");
+      const scrollDownText = scrollDown.querySelector("p");
+      const mouse = scrollDown.querySelector(".mouse");
 
-  // // setup
+      gsap.set(aboutMeTitle, { y: 500 });
+      gsap.set(aboutMeImg, { scale: 0.9, autoAlpha: 0, borderRadius: "50%" });
+      gsap.set(sectionText, { y: 100, autoAlpha: 0 });
+      gsap.set(socialTitle, { y: 50, opacity: 0 });
+      gsap.set(socials, { x: 50, opacity: 0 });
+      gsap.set(scrollDownText, { y: 30, opacity: 0 });
+      gsap.set(mouse, { x: -50, opacity: 0 });
+
+      const tl = gsap.timeline();
+      tl.to(aboutMeTitle, {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.out",
+      })
+        .to(
+          sectionText,
+          {
+            duration: 1,
+            ease: "back.out(1.7)",
+            y: 0,
+            autoAlpha: 1,
+            stagger: {
+              amount: 0.5,
+            },
+          },
+          ">+0.5"
+        )
+        .to(
+          aboutMeImg,
+          {
+            scale: 1,
+            autoAlpha: 1,
+            duration: 0.7,
+            borderRadius: "25%",
+            ease: "expoScale(1,2,power2.inOut)",
+            stagger: 0.1,
+          },
+          "<0.5"
+        )
+        .to(socialTitle, {
+          duration: 1,
+          y: 0,
+          opacity: 1,
+          ease: "power2.out",
+        })
+        .to(socials, {
+          duration: 1,
+          x: 0,
+          opacity: 1,
+          ease: "back.out(1.7)",
+          stagger: {
+            amount: 0.5,
+          },
+        })
+        .to(
+          scrollDownText,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "back.out(1.7)",
+          },
+          "+=1"
+        )
+        .to(mouse, {
+          x: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power1.out",
+        });
+
+      return tl;
+    } else if (section.classList.contains("projects")) {
+      const sectionLink = document.querySelector(".projects-link");
+      active(sectionLink);
+      if (projectsAnimated) return;
+      projectsAnimated = true;
+      const projectTitle = section.querySelector(".title");
+      const mask = section.querySelector(".mask");
+
+      const line1 = section.querySelector(".of-line1");
+      const line1Content = line1.querySelectorAll("h3, p, h4, .tech-list");
+      const line1BlobStart = section.querySelector(".first-card #first-start");
+      const line1BlobMid = section.querySelector(".first-card #first-mid");
+      const line1CardLink = section.querySelector(".card-link.for-line1");
+      const line1CardLinkLine = section.querySelector(
+        ".card-link-line.for-link1 path"
+      );
+
+      const line = section.querySelectorAll(".svg-projects-line path");
+
+      const line2 = section.querySelector(".of-line2");
+      const line2Content = line2.querySelectorAll("h3, p, h4, .tech-list");
+      const line2BlobStart = section.querySelector(
+        ".second-card #second-start"
+      );
+      const line2BlobMid = section.querySelector(".second-card #second-mid");
+      const line2CardLink = section.querySelector(".card-link.for-line2");
+      const line2CardLinkLine = section.querySelector(
+        ".card-link-line.for-link2 path"
+      );
+
+      const scrollDown = document.querySelector(".scroll-down.of-projects");
+      const scrollDownText = scrollDown.querySelector("p");
+      const mouse = scrollDown.querySelector(".mouse");
+
+      gsap.set(projectTitle, { y: 500 });
+
+      gsap.set(line1BlobStart, { scale: 0.8, autoAlpha: 0 });
+      gsap.set(line1Content, { y: 50, autoAlpha: 0 });
+      gsap.set(line1CardLinkLine, { drawSVG: 0 });
+      gsap.set(line1CardLink, { scale: 0, color: "transparent" });
+
+      gsap.set(line, { drawSVG: 0 });
+
+      gsap.set(line2BlobStart, { scale: 0.8, autoAlpha: 0 });
+      gsap.set(line2Content, { y: 50, autoAlpha: 0 });
+      gsap.set(line2CardLinkLine, { drawSVG: "0% 0%" });
+      gsap.set(line2CardLink, { scale: 0, color: "transparent" });
+
+      gsap.set(scrollDownText, { y: 30, opacity: 0 });
+      gsap.set(mouse, { x: -50, opacity: 0 });
+
+      /* a small comment: i just realized if i wanted to add a card it would hustle,
+      i need to make this code dynamic but not today i'm really tired and just want to finish this project*/
+      const tl = gsap.timeline();
+      tl.to(projectTitle, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        // ease: "back.out(1.7)",
+        ease: "power2.out",
+        onComplete: () => {
+          mask.style.overflow = "visible";
+        },
+      })
+        .to(
+          line1BlobStart,
+          {
+            // delay: 1,
+            scale: 1,
+            autoAlpha: 1,
+            duration: 0.8,
+            morphSVG: line1BlobMid,
+            // ease: "back.inOut(3)",
+          },
+          "<1"
+        )
+        .to(line1BlobStart, {
+          duration: 1.7,
+          morphSVG: {
+            shape: "#first-end",
+            shapeIndex: 1,
+          },
+          ease: "back.out(3)",
+        })
+        .to(
+          line1Content,
+          {
+            duration: 0.8,
+            y: 0,
+            autoAlpha: 1,
+            stagger: {
+              each: 0.5,
+            },
+            ease: "power2.out",
+          },
+          "-=0.5"
+        )
+        .to(line1CardLinkLine, {
+          drawSVG: true,
+          duration: 0.8,
+          ease: "power2.out",
+        })
+        .to(
+          line1CardLink,
+          {
+            scale: 1,
+            transformOrigin: "25% 0%",
+            duration: 0.5,
+            ease: "power1.out",
+          },
+          "-=0.5"
+        )
+        .to(
+          line1CardLink,
+          {
+            color: "var(--dominant-color)",
+            duration: 0.5,
+          },
+          "-=0.15"
+        )
+        .to(
+          line,
+          {
+            drawSVG: true,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "-=2"
+        )
+        // line 2
+        .to(
+          line2BlobStart,
+          {
+            scale: 1,
+            autoAlpha: 1,
+            duration: 0.5,
+            morphSVG: line2BlobMid,
+            // ease: "back.inOut(3)",
+          },
+          "<0.5"
+        )
+        .to(line2BlobStart, {
+          duration: 1,
+          morphSVG: {
+            shape: "#second-end",
+            shapeIndex: 3,
+          },
+          // ease: "back.out(3)",
+        })
+        .to(
+          line2Content,
+          {
+            duration: 0.5,
+            y: 0,
+            autoAlpha: 1,
+            stagger: {
+              each: 0.5,
+            },
+          },
+          "-=0.5"
+        )
+        .to(
+          line2CardLinkLine,
+          {
+            drawSVG: "100% 0%",
+            transformOrigin: "bottom",
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "-=0.5"
+        )
+        .to(
+          line2CardLink,
+          {
+            scale: 1,
+            transformOrigin: "52.95% 100%",
+            duration: 0.5,
+            ease: "power1.out",
+          },
+          "-=0.7"
+        )
+        .to(
+          line2CardLink,
+          {
+            color: "var(--dominant-color)",
+            duration: 0.5,
+          },
+          "-=0.15"
+        )
+        .to(
+          scrollDownText,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "back.out(1.7)",
+          },
+          "+=1"
+        )
+        .to(mouse, {
+          x: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power1.out",
+        });
+
+      projectTitle.addEventListener("mouseenter", () => {
+        gsap.to(projectTitle, {
+          scale: 1.075,
+          duration: 0.4,
+          ease: "power1.inOut",
+        });
+      });
+
+      projectTitle.addEventListener("mouseleave", () => {
+        gsap.to(projectTitle, {
+          scale: 1,
+          duration: 0.4,
+          ease: "power1.inOut",
+        });
+      });
+
+      return tl;
+    } else if (section.classList.contains("connect")) {
+      const sectionLink = document.querySelector(".connect-link");
+      active(sectionLink);
+      if (connectAnimated) return;
+      connectAnimated = true;
+
+      const connectTitle = section.querySelector(".connect-title");
+      const connectText = section.querySelector(".connect-text");
+
+      let split = SplitText.create(connectText, {
+        type: "lines", // only split into words and lines (not characters)
+        mask: "lines", // adds extra wrapper element around lines with overflow: clip (v3.13.0+)
+        // linesClass: "line", // adds "line" class to each line element, plus an incremented one too ("line1", "line2", "line3", etc.)
+
+        // there are many other options - see below for a complete list
+      });
+
+      const connectLinks = section.querySelector(".contact-links");
+      const btn = connectLinks.querySelector(".btn");
+      const or = connectLinks.querySelector("span.or");
+      const contactLinks = connectLinks.querySelectorAll(".contact");
+
+      const techStackTitle = section.querySelector(".tech-stack");
+      const techStackList = section.querySelectorAll(".tech-list-stack .tech");
+      const techStackIcon = section.querySelectorAll(
+        ".tech-list-stack .tech-icon"
+      );
+
+      const scrollDown = document.querySelector(".scroll-down.of-connect");
+      const scrollDownText = scrollDown.querySelector("p");
+      const mouse = scrollDown.querySelector(".mouse");
+
+      gsap.set(connectTitle, { y: 500 });
+      gsap.set(split.lines, { y: 100, autoAlpha: 0 });
+
+      gsap.set(btn, { y: 50, autoAlpha: 0 });
+      gsap.set(or, { autoAlpha: 0 });
+      gsap.set(contactLinks, { y: 50, autoAlpha: 0 });
+
+      gsap.set(techStackTitle, { y: 50, autoAlpha: 0 });
+      gsap.set(".tech-list-stack", { autoAlpha: 0 });
+      gsap.set(techStackList, { autoAlpha: 0 });
+
+      gsap.set(".html", { color: "#e34c26" });
+      gsap.set(".css", { color: "rebeccapurple" });
+      gsap.set(".js", { color: "#f0db4f" });
+      gsap.set(".node", { color: "#3c873a" });
+      gsap.set(".express", { color: "#444444" });
+      gsap.set(".discordjs", { color: "#5865f2" });
+      gsap.set(techStackIcon, { filter: "none" });
+      gsap.set(".tech-icon-express", { fill: "#444444" });
+
+      gsap.set(scrollDownText, { y: 30, opacity: 0 });
+      gsap.set(mouse, { x: -50, opacity: 0 });
+
+      const tl = gsap
+        .timeline()
+        .to(connectTitle, {
+          y: 0,
+          duration: 0.5,
+          ease: "power1.out",
+        })
+        .to(split.lines, {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power1.out",
+        })
+        .to(btn, {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.5,
+          ease: "power1.out",
+        })
+        .to(or, {
+          autoAlpha: 1,
+          duration: 0.5,
+          ease: "power1.out",
+        })
+        .to(contactLinks, {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.5,
+          stagger: {
+            amount: 0.3,
+          },
+          ease: "power1.out",
+        })
+        .to(techStackTitle, {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.5,
+          ease: "power1.out",
+        })
+        .to(".tech-list-stack", {
+          autoAlpha: 1,
+          duration: 0.5,
+          ease: "power1.out",
+        })
+        .to(techStackList, {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.5,
+          color: "var(--text-color)",
+          stagger: {
+            each: 0.3,
+          },
+          ease: "power1.out",
+        })
+        .to(
+          ".tech-icon-express",
+          {
+            fill: "#f4f1eb",
+          },
+          "<1.5"
+        )
+        .to(
+          techStackIcon,
+          {
+            duration: 0.5,
+            filter: "brightness(0) invert(1)",
+          },
+          "<"
+        )
+        .to(
+          scrollDownText,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "back.out(1.7)",
+          },
+          "+=1"
+        )
+        .to(mouse, {
+          x: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power1.out",
+        });
+
+      return tl;
+    } else {
+      active();
+    }
+  };
+
+  const goToSectionBtn = (sectionTo) => {
+    // if (isAnimating) return;
+    const targetSection = document.querySelector(
+      sectionTo.getAttribute("href")
+    );
+    const index = [...sections].indexOf(targetSection);
+    goToSection(index, 1);
+  };
+
+  if (isMobile) {
+    sections.forEach((section, index, sections) => {
+      if (index > 0) {
+        let prevSection = sections[index - 1];
+
+        ScrollTrigger.create({
+          trigger: section,
+          start: "50px bottom",
+          onEnter: () => sectionAnimation(section),
+          onLeaveBack: () => sectionAnimation(prevSection),
+          markers: true,
+        });
+      }
+    });
+  } else {
+    Observer.create({
+      type: "wheel",
+      onDown: () => !isAnimating && goToSection(currentIndex - 1, -1),
+      onUp: () => !isAnimating && goToSection(currentIndex + 1, 1),
+      wheelSpeed: -1,
+      tolerance: 10,
+      preventDefault: true,
+    });
+  }
+
   gsap.set(sections[0], { autoAlpha: 1 });
+
+  return { goToSection, goToSectionBtn };
 };
 
+let scrollController;
+
 document.addEventListener("DOMContentLoaded", () => {
-  scrollAnimation();
+  if (window.matchMedia("(min-width: 769px)").matches) {
+    scrollController = scrollAnimation();
+  } else {
+    scrollController = scrollAnimation(true);
+  }
 });
 
 // gsap.timeline({
