@@ -954,7 +954,7 @@ const scrollAnimation = (isMobile) => {
           start: "50px bottom",
           onEnter: () => sectionAnimation(section),
           onLeaveBack: () => sectionAnimation(prevSection),
-          markers: true,
+          // markers: true,
         });
       }
     });
