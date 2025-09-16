@@ -1,7 +1,3 @@
-new TypeIt("#typing", {
-  strings: `Hey👋🏻 I'm <span class="name"> Ghali!</span>`,
-}).go();
-
 gsap.registerPlugin(
   SplitText,
   DrawSVGPlugin,
@@ -10,8 +6,67 @@ gsap.registerPlugin(
   Observer,
   ScrollTrigger,
   Flip,
-  MorphSVGPlugin
+  MorphSVGPlugin,
+  ScrambleTextPlugin
 );
+
+const loadingAnimation = () => {
+  const loadingText = document.querySelector(".loader-title");
+  let split = SplitText.create(loadingText, {
+    type: "chars",
+    charsClass: "loading-letter",
+  });
+  const tl = gsap
+    .timeline({
+      repeat: -1,
+      defaults: {
+        duration: 0.5,
+        ease: "power1.inOut",
+        stagger: {
+          from: "start",
+          each: 0.1,
+        },
+      },
+    })
+    .to(split.chars, {
+      y: -50,
+    })
+    .to(split.chars, {
+      y: 0,
+    });
+
+  const scrambling = gsap.to(".loading-letter", {
+    scrambleText: {
+      text: "{original}",
+      revealDelay: 0.2,
+      speed: 0.4,
+    },
+    duration: 5,
+    repeat: -1,
+    yoyo: 1,
+    stagger: {
+      from: "start",
+      each: 0.1,
+    },
+  });
+};
+
+loadingAnimation();
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("loader").style.display = "none";
+    document.body.classList.remove("mask");
+    if (window.matchMedia("(max-width: 1032px)").matches) {
+      document.getElementById("content").style.display = "block";
+    } else {
+      document.getElementById("content").style.display = "grid";
+    }
+    new TypeIt("#typing", {
+      strings: `Hey👋🏻 I'm <span class="name"> Ghali!</span>`,
+    }).go();
+  }, 1000);
+});
 
 const dot = document.querySelector(".cursor-dot");
 

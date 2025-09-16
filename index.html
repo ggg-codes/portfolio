@@ -13,15 +13,16 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="mask">
 
-	<div class="loader" style="display: none;">
-
+	<div class="loader" id="loader">
+		<h3 class="loader-title">Loading</h3>
+		<canvas class="loading-icon" id="loading"></canvas>
 	</div>
 
 
 
-	<div class="content">
+	<div class="content" id="content">
 
 		<div class="cursor-dot"></div>
 		<aside class="sidebar">
@@ -412,11 +413,16 @@
 	<script src="https://unpkg.com/lucide@latest"></script>
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MorphSVGPlugin.min.js"></script>
-	<!-- <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script> -->
-	<!-- <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/findShapeIndex.js"></script> -->
-	<!-- <script src="https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
 	<script type="module">
 		import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
+
+		let loadingIcon = new DotLottie({
+			autoplay: true,
+			loop: true,
+			canvas: document.getElementById('loading'),
+			src: 'https://lottie.host/508bf120-82ff-4b85-aee7-9a37031c82ab/nPppvNbhT7.lottie'
+		})
 
 		let barIcon = new DotLottie({
 			// autoplay: true,
